@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+
+int p=4;
+int d=3;
+const int maxM=1024;
+const int maxE= 720;
+const int maxB= 512;
+clock ep0, ec0, es4, es0, es1, en0;
+int bdw=0, egy, mem;
+chan Affect_req_s,  Affect_req_n, Alert, Handled,done_p, A_req, Ack, Req, Req_s, Ack_s, Req_n, Ack_n, A_req_n, Rep, Rep_n, Rep_s, Response, Trans, done;
+
+
+
+
+
+</declaration>
+	<template>
+		<name x="5" y="5">Nurse</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="42" y="-93">
+			<name x="51" y="-76">S2</name>
+		</location>
+		<location id="id1" x="136" y="-187">
+			<name x="126" y="-217">S1</name>
+		</location>
+		<location id="id2" x="-51" y="-187">
+			<name x="-61" y="-217">S0</name>
+		</location>
+		<location id="id3" x="-85" y="-93">
+			<name x="-111" y="-76">S_Error</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-42" y="-93">en0&gt;13</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-153" y="-144">en0&gt;= 1 &amp;&amp; en0&lt;=13</label>
+			<label kind="synchronisation" x="-59" y="-161">Rep!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="93" y="-144">Ack!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="0" y="-212">Affect_req_n?</label>
+			<label kind="assignment" x="17" y="-229">en0:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Con2P2</name>
+		<location id="id4" x="-76" y="-263">
+			<name x="-86" y="-293">S1</name>
+		</location>
+		<location id="id5" x="-178" y="-263">
+			<name x="-188" y="-293">S0</name>
+		</location>
+		<location id="id6" x="-76" y="-204">
+			<name x="-59" y="-213">S2</name>
+		</location>
+		<location id="id7" x="-76" y="-144">
+			<name x="-85" y="-127">S3</name>
+		</location>
+		<location id="id8" x="-178" y="-144">
+			<name x="-187" y="-127">S4</name>
+		</location>
+		<location id="id9" x="-178" y="-204">
+			<name x="-212" y="-212">S5</name>
+		</location>
+		<init ref="id5"/>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-229" y="-246">Rep_s!</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-153" y="-170">Ack_s!</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="-238" y="-187">Rep_n?</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-68" y="-187">Ack_n?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-68" y="-246">A_req_n!</label>
+			<nail x="-76" y="-238"/>
+			<nail x="-76" y="-238"/>
+			<nail x="-76" y="-238"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-144" y="-289">Req?</label>
+			<nail x="-127" y="-263"/>
+		</transition>
+	</template>
+	<template>
+		<name>Con2P1</name>
+		<location id="id10" x="-102" y="-238">
+			<name x="-112" y="-268">S1</name>
+		</location>
+		<location id="id11" x="-204" y="-238">
+			<name x="-214" y="-268">S0</name>
+		</location>
+		<location id="id12" x="-102" y="-178">
+			<name x="-85" y="-187">S2</name>
+		</location>
+		<location id="id13" x="-102" y="-127">
+			<name x="-111" y="-110">S3</name>
+		</location>
+		<location id="id14" x="-204" y="-127">
+			<name x="-213" y="-110">S4</name>
+		</location>
+		<location id="id15" x="-204" y="-178">
+			<name x="-238" y="-186">S5</name>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="-255" y="-212">Rep_n!</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-170" y="-153">Ack_n!</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-246" y="-161">Rep?</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="-93" y="-161">Ack?</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-93" y="-221">Affect_req_n!</label>
+			<nail x="-102" y="-212"/>
+			<nail x="-102" y="-195"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-178" y="-263">A_req_n?</label>
+			<nail x="-153" y="-238"/>
+		</transition>
+	</template>
+	<template>
+		<name>Service1P1</name>
+		<location id="id16" x="-705" y="-484">
+			<name x="-739" y="-496">S3</name>
+		</location>
+		<location id="id17" x="-586" y="-484">
+			<name x="-570" y="-492">S2</name>
+		</location>
+		<location id="id18" x="-585" y="-603">
+			<name x="-569" y="-619">S1</name>
+		</location>
+		<location id="id19" x="-705" y="-603">
+			<name x="-739" y="-612">S0</name>
+		</location>
+		<init ref="id19"/>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-748" y="-561">done!</label>
+			<label kind="assignment" x="-748" y="-544">mem--</label>
+			<nail x="-705" y="-561"/>
+			<nail x="-705" y="-569"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="synchronisation" x="-671" y="-476">Response?</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-578" y="-586">es1&gt;= p &amp;&amp; es1&lt;=p+4
+&amp;&amp; bdw&lt;=maxB</label>
+			<label kind="synchronisation" x="-578" y="-535">Trans!</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-671" y="-603">ep0&gt;=d</label>
+			<label kind="synchronisation" x="-688" y="-629">Affect_req_s?</label>
+			<label kind="assignment" x="-705" y="-654">egy++ &amp;&amp; mem++, es1=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Service1P2</name>
+		<location id="id20" x="-178" y="-153">
+			<name x="-212" y="-161">S4</name>
+		</location>
+		<location id="id21" x="-76" y="-153">
+			<name x="-85" y="-144">S3</name>
+		</location>
+		<location id="id22" x="42" y="-153">
+			<name x="58" y="-161">S2</name>
+		</location>
+		<location id="id23" x="42" y="-229">
+			<name x="58" y="-245">S1</name>
+			<label kind="invariant" x="17" y="-263">es4&lt;=3</label>
+		</location>
+		<location id="id24" x="-178" y="-229">
+			<name x="-202" y="-255">S0</name>
+		</location>
+		<location id="id25" x="-178" y="-374">
+			<name x="-238" y="-400">S_Error</name>
+		</location>
+		<init ref="id24"/>
+		<transition>
+			<source ref="id24"/>
+			<target ref="id25"/>
+			<label kind="guard" x="-289" y="-348">not (bdw&lt;=maxB
+&amp;&amp; mem&lt;=maxM
+&amp;&amp; egy&lt;=maxE)</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id20"/>
+			<label kind="synchronisation" x="-153" y="-153">Rep_s?</label>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id24"/>
+			<label kind="synchronisation" x="-255" y="-204">Response!</label>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id21"/>
+			<label kind="synchronisation" x="-34" y="-153">Ack_s?</label>
+			<nail x="-34" y="-153"/>
+		</transition>
+		<transition>
+			<source ref="id23"/>
+			<target ref="id22"/>
+			<label kind="guard" x="51" y="-212">es4&gt;=1 &amp;&amp; es4&lt;=3</label>
+			<label kind="synchronisation" x="51" y="-195">Req!</label>
+		</transition>
+		<transition>
+			<source ref="id24"/>
+			<target ref="id23"/>
+			<label kind="guard" x="-110" y="-314">bdw&lt;=maxB
+&amp;&amp; mem&lt;=maxM
+&amp;&amp; egy&lt;=maxE</label>
+			<label kind="synchronisation" x="-85" y="-255">Trans?</label>
+			<label kind="assignment" x="-85" y="-229">es4:=0</label>
+			<label kind="comments" x="-127" y="-374">const int maxM=1024;
+const int maxE= 720;
+const int maxB= 512;</label>
+		</transition>
+	</template>
+	<template>
+		<name>Con1P1</name>
+		<location id="id26" x="-212" y="-399">
+			<name x="-222" y="-429">S1</name>
+			<urgent/>
+		</location>
+		<location id="id27" x="-348" y="-399">
+			<name x="-358" y="-429">S0</name>
+		</location>
+		<location id="id28" x="-212" y="-340">
+			<name x="-221" y="-323">S2</name>
+		</location>
+		<location id="id29" x="-348" y="-340">
+			<name x="-357" y="-323">S3</name>
+		</location>
+		<init ref="id27"/>
+		<transition>
+			<source ref="id29"/>
+			<target ref="id27"/>
+			<label kind="synchronisation" x="-408" y="-374">Handled!</label>
+		</transition>
+		<transition>
+			<source ref="id28"/>
+			<target ref="id29"/>
+			<label kind="synchronisation" x="-306" y="-340">done_p?</label>
+			<nail x="-263" y="-340"/>
+			<nail x="-272" y="-340"/>
+		</transition>
+		<transition>
+			<source ref="id26"/>
+			<target ref="id28"/>
+			<label kind="guard" x="-204" y="-382">bdw&lt;=maxB</label>
+			<label kind="synchronisation" x="-195" y="-399">A_req!</label>
+			<nail x="-212" y="-382"/>
+			<nail x="-212" y="-365"/>
+		</transition>
+		<transition>
+			<source ref="id27"/>
+			<target ref="id26"/>
+			<label kind="guard" x="-323" y="-442">bdw&lt;=maxB</label>
+			<label kind="synchronisation" x="-306" y="-425">Alert?</label>
+			<nail x="-263" y="-399"/>
+		</transition>
+	</template>
+	<template>
+		<name>Con1P2</name>
+		<declaration>
+</declaration>
+		<location id="id30" x="-136" y="34">
+			<name x="-144" y="51">S3</name>
+		</location>
+		<location id="id31" x="-136" y="-85">
+			<name x="-146" y="-115">S0</name>
+		</location>
+		<location id="id32" x="-17" y="34">
+			<name x="-26" y="51">S2</name>
+		</location>
+		<location id="id33" x="-17" y="-85">
+			<name x="-27" y="-115">S1</name>
+		</location>
+		<location id="id34" x="127" y="-85">
+			<name x="117" y="-119">S_Error</name>
+		</location>
+		<init ref="id31"/>
+		<transition>
+			<source ref="id33"/>
+			<target ref="id34"/>
+			<label kind="guard" x="25" y="-127">ec0&gt;9</label>
+			<label kind="synchronisation" x="8" y="-110">Affect_req_s!</label>
+			<label kind="assignment" x="34" y="-85">es0:=0</label>
+		</transition>
+		<transition>
+			<source ref="id30"/>
+			<target ref="id31"/>
+			<label kind="synchronisation" x="-195" y="-34">done_p!</label>
+		</transition>
+		<transition>
+			<source ref="id32"/>
+			<target ref="id30"/>
+			<label kind="synchronisation" x="-93" y="34">done?</label>
+			<nail x="-68" y="34"/>
+			<nail x="-68" y="34"/>
+			<nail x="-76" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id33"/>
+			<target ref="id32"/>
+			<label kind="guard" x="-8" y="-34">ec0&gt;=1 &amp;&amp; ec0&lt;=9</label>
+			<label kind="synchronisation" x="-8" y="-17">Affect_req_s!</label>
+			<label kind="assignment" x="-8" y="-51">es0:=0</label>
+			<nail x="-17" y="-59"/>
+			<nail x="-17" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id31"/>
+			<target ref="id33"/>
+			<label kind="guard" x="-119" y="-127">bdw&lt;=maxB</label>
+			<label kind="synchronisation" x="-110" y="-110">A_req?</label>
+			<label kind="assignment" x="-110" y="-85">ec0:=0</label>
+			<nail x="-76" y="-85"/>
+		</transition>
+	</template>
+	<template>
+		<name>Patient1P1</name>
+		<location id="id35" x="0" y="-102">
+			<name x="-10" y="-132">S1</name>
+		</location>
+		<location id="id36" x="-127" y="-102">
+			<name x="-137" y="-132">S0</name>
+		</location>
+		<location id="id37" x="-127" y="17">
+			<name x="-144" y="34">S_End</name>
+			<urgent/>
+		</location>
+		<init ref="id36"/>
+		<transition>
+			<source ref="id37"/>
+			<target ref="id36"/>
+		</transition>
+		<transition>
+			<source ref="id35"/>
+			<target ref="id37"/>
+			<label kind="guard" x="-59" y="-42">1&lt;=ep0 &amp;&amp; ep0&lt;=30</label>
+			<label kind="synchronisation" x="-25" y="-68">Handled?</label>
+			<nail x="-68" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id36"/>
+			<target ref="id35"/>
+			<label kind="guard" x="-102" y="-144">bdw&lt;=maxB</label>
+			<label kind="synchronisation" x="-85" y="-127">Alert!</label>
+			<label kind="assignment" x="-85" y="-102">ep0:=0</label>
+			<nail x="-68" y="-102"/>
+		</transition>
+	</template>
+	<system>
+patient1P1 =  Patient1P1(); 
+nurse1 =  Nurse(); 
+
+service1P1 = Service1P1(); 
+service1P2 = Service1P2(); 
+
+con1p1 =Con1P1(); 
+con1p2 =Con1P2(); 
+
+con2p1 =Con2P1(); 
+con2p2 =Con2P2(); 
+
+system  patient1P1 , service1P1, service1P2, nurse1, con1p1, con1p2, con2p1, con2p2;
+
+
+</system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E[] not nurse1.S2</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>A[] (service1P1.S1 and mem&lt;=maxM and egy&lt;=maxE)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S1 and (es1&lt;p or es1&gt;p+4))</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>A[] (service1P2.S3 and es1==1 imply ep0&lt;=ec0)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S1 and ep0&gt;=d)</formula>
+			<comment>est ce qu'il existe un etat s1 dans servciceP1 ou la guarde de Trans! n'est pas satisfaite? si c'est oui, alors ceci signifier que une requete recue pourra etre non traitee. 
+Il faut que ep0-es0 soit inferieure a la duree en rendant urgent l'etat s1 dans con1p1 et on exige que ec0-es0&lt;duree.
+
+si on fixe le max de ec0 a 10 au lieu de 9 on aura un cas ou les requettes recues apres 9 seconds ne seront pas traitee.
+
+</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(con1p2.S_Error)</formula>
+			<comment>la posssibilite de tombe dans un etat ou on perdre les messages </comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P2.S_Error)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(con1p2.S_Error and service1P2.S_Error)</formula>
+			<comment>and / or </comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(con1p2.S_Error or service1P2.S_Error)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(patient1P1.S_End)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>A[] patient1P1.S_End</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>A[] (service1P2.S3 and es1==1 imply ep0&lt;=ec0)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(con1p1.S1 and bdw&gt;maxB)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S1 and bdw&gt;maxB)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S2 and es1&lt;p)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S2 and es1&gt;p+4)</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;(service1P1.S2 and (es1&lt;p or es1&gt;p+4))</formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>
