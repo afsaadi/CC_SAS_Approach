@@ -1,0 +1,36 @@
+digraph SEQ_DIAGRAM {
+    graph [overlap=true, splines=line, nodesep=1.0, ordering=out];
+    edge [arrowhead=none];
+    node [shape=none, width=0, height=0, label=""];
+
+{
+      rank=same;
+      node[shape=rectangle, height=0.7, width=2];
+  api_CapteurHumidite1[label="CapteurHumidite1"];
+  api_ServiceC1[label="ServiceC1"];
+  api_ActionneurVentilation1[label="ActionneurVentilation1"];
+    }
+   // Draw vertical lines
+    {
+       edge [style=dashed, weight=20];
+        api_CapteurHumidite1 -> CapteurHumidite11 ->CapteurHumidite12  
+  }
+   // Draw vertical lines
+    {
+       edge [style=dashed, weight=20];
+        api_ServiceC1 -> ServiceC11 ->ServiceC12  
+  }
+   // Draw vertical lines
+    {
+       edge [style=dashed, weight=20];
+        api_ActionneurVentilation1 -> ActionneurVentilation11 ->ActionneurVentilation12  
+  }
+    { rank=same; CapteurHumidite11 -> ServiceC11[arrowhead=normal]; }
+    { rank=same; ServiceC12 -> ActionneurVentilation12[arrowhead=normal]; }
+// Ajouter des labels aux points C11, C12, etc.
+ node [shape=circle, width=0.3];
+    ServiceC12 [label="Sum Methods[790]/2"];
+    CapteurHumidite11 [label="mh1[2]/2"];
+    ActionneurVentilation12 [label="Processing time =1000>=796"];
+    ServiceC11 [label="wait[309>4]"];
+}
