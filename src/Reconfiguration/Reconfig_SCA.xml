@@ -1,0 +1,972 @@
+<?xml version="1.0" ?>
+<Configuration><name>Reconfig_SCA</name>
+<Events>
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation</name>
+<Date>Sun May 19 20:51:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTempérature</name>
+<Date>Sun May 19 20:52:22 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidité</name>
+<Date>Sun May 19 20:53:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTempérature2</name>
+<Date>Sun May 19 20:53:28 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTempérature3</name>
+<Date>Sun May 19 20:53:32 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidité2</name>
+<Date>Sun May 19 20:53:37 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidité3</name>
+<Date>Sun May 19 20:53:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>c1</name>
+<Date>Sun May 19 20:56:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>c12</name>
+<Date>Sun May 19 20:56:58 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTempérature2</name>
+<Date>Sun May 19 20:57:50 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature2</name>
+<Date>Sun May 19 20:59:28 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature3</name>
+<Date>Sun May 19 20:59:59 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidite2</name>
+<Date>Sun May 19 21:00:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidite3</name>
+<Date>Sun May 19 21:00:14 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral</name>
+<Date>Sun May 19 21:03:59 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt1</name>
+<Date>Sun May 19 21:04:33 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt2</name>
+<Date>Sun May 19 21:04:46 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deletePort</Type>
+<name>CapteurTemperature1:pt2</name>
+<Date>Sun May 19 21:04:57 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature2:pt2</name>
+<Date>Sun May 19 21:05:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite1:ph1</name>
+<Date>Sun May 19 21:05:26 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite2:ph2</name>
+<Date>Sun May 19 21:05:41 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>ActionneurVentilation:pav1</name>
+<Date>Sun May 19 21:06:06 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sun May 19 21:14:02 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature2_pt2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sun May 19 21:14:34 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite1_ph1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sun May 19 21:15:09 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite2_ph2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sun May 19 21:15:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral_ServiceCentralpsc2_pav1_ActionneurVentilation</name>
+<Date>Sun May 19 21:28:01 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConfigPort</Type>
+<name>Psca1</name>
+<Date>Sun May 19 21:34:00 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConfigPort</Type>
+<name>Psca2</name>
+<Date>Sun May 19 21:34:21 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt3</name>
+<Date>Sun May 19 21:43:45 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CapteurTemperature1_Psca1_pt3_SCA</name>
+<Date>Sun May 19 21:44:14 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CapteurTemperature1_Psca1_pt3_SCA</name>
+<Date>Sun May 19 21:44:49 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral</name>
+<Date>Sun May 19 21:54:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature4</name>
+<Date>Tue May 21 10:07:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>Pms1</name>
+<Date>Tue May 21 19:45:37 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral1</name>
+<Date>Tue May 21 19:46:25 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral_ServiceCentralpsc2_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Tue May 21 19:57:51 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral1</name>
+<Date>Tue May 21 21:08:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral_ServiceCentralpsc2_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Tue May 21 21:08:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>Pms1</name>
+<Date>Tue May 21 21:08:19 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral1</name>
+<Date>Wed May 22 13:32:01 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral1</name>
+<Date>Wed May 22 13:38:43 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature2_pt2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite1_ph1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite2_ph2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral_ServiceCentralpsc2_pav1_ActionneurVentilation2</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Tue Jun 18 09:22:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral1</name>
+<Date>Tue Jun 18 09:22:18 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Tue Jun 18 09:40:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pav1_ActionneurVentilation2</name>
+<Date>Tue Jun 18 10:56:33 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite1_ph1_pav1_ActionneurVentilation2</name>
+<Date>Tue Jun 18 10:59:13 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite1:p43</name>
+<Date>Tue Jun 18 11:24:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_p43_CapteurHumidite1</name>
+<Date>Tue Jun 18 11:26:00 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:p9</name>
+<Date>Tue Jun 18 14:29:10 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CapteurTemperature1_Psca1_p9_SCA</name>
+<Date>Tue Jun 18 14:29:38 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 13:57:28 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 13:57:34 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CapteurTemperature1_Psca2_pt1_SCA</name>
+<Date>Sat Jun 22 14:36:53 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CapteurTemperature1_Psca1_p9_SCA</name>
+<Date>Sat Jun 22 14:44:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CapteurTemperature1_Psca1_p9_SCA</name>
+<Date>Sat Jun 22 15:31:41 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature2_pt2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 17:51:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature2_pt2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 17:52:54 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature2_pt2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite1_ph1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite2_ph2_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral_ServiceCentralpsc2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentralpsc_ServiceCentral</name>
+<Date>Sat Jun 22 17:53:04 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral1</name>
+<Date>Sat Jun 22 17:53:21 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite2_ph2_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 17:53:48 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 17:54:17 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponent</Type>
+<name>ActionneurVentilation2</name>
+<Date>Sat Jun 22 18:07:03 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pav1_ActionneurVentilation2</name>
+<Date>Sat Jun 22 18:07:03 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation2</name>
+<Date>Sat Jun 22 18:07:14 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>ActionneurVentilation1:pa1</name>
+<Date>Sat Jun 22 18:07:39 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pa1_ActionneurVentilation1</name>
+<Date>Sat Jun 22 18:08:10 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponent</Type>
+<name>CapteurHumidite2</name>
+<Date>Sat Jun 22 18:09:42 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite2_ph2_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 18:09:42 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidite2</name>
+<Date>Sat Jun 22 18:10:22 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite1:ph1</name>
+<Date>Sat Jun 22 18:10:42 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite1_ph1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 18:12:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral1</name>
+<Date>Sat Jun 22 18:19:43 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurHumidite1_ph1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 18:19:43 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_pa1_ActionneurVentilation1</name>
+<Date>Sat Jun 22 18:19:43 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>wsd1</name>
+<Date>Sat Jun 22 18:20:38 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>wsd1_wsd1p76_pa1_ActionneurVentilation1</name>
+<Date>Sat Jun 22 18:21:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature2_pt2_wsd1p34_wsd1</name>
+<Date>Sat Jun 22 18:23:17 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature4</name>
+<Date>Sat Jun 22 18:24:58 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponent</Type>
+<name>CapteurTemperature2</name>
+<Date>Sat Jun 22 18:25:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature2_pt2_wsd1p34_wsd1</name>
+<Date>Sat Jun 22 18:25:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature3:pt3</name>
+<Date>Sat Jun 22 18:25:30 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature3_pt3_wsd1p34_wsd1</name>
+<Date>Sat Jun 22 18:26:44 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponent</Type>
+<name>ActionneurVentilation1</name>
+<Date>Sat Jun 22 18:30:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>wsd1_wsd1p76_pa1_ActionneurVentilation1</name>
+<Date>Sat Jun 22 18:30:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature5</name>
+<Date>Sat Jun 22 18:30:57 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature4:p23</name>
+<Date>Sat Jun 22 18:31:19 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>wsd1_wsd1p76_p23_CapteurTemperature4</name>
+<Date>Sat Jun 22 18:31:41 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation2</name>
+<Date>Sat Jun 22 18:42:10 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature6</name>
+<Date>Sat Jun 22 18:44:42 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation3</name>
+<Date>Sat Jun 22 18:47:30 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation4</name>
+<Date>Sat Jun 22 18:49:29 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature2</name>
+<Date>Sat Jun 22 18:51:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurTemperature3</name>
+<Date>Sat Jun 22 18:51:54 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceCentral1</name>
+<Date>Sat Jun 22 18:52:06 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidite2</name>
+<Date>Sat Jun 22 18:52:15 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CapteurHumidite3</name>
+<Date>Sat Jun 22 18:52:25 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>ActionneurVentilation2</name>
+<Date>Sat Jun 22 18:52:41 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt1</name>
+<Date>Sat Jun 22 18:53:12 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite1:ph1</name>
+<Date>Sat Jun 22 18:53:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 18:54:36 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 18:54:44 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 18:55:17 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 18:55:56 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>wsd1</name>
+<Date>Sat Jun 22 18:58:39 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_wsd1p34_wsd1</name>
+<Date>Sat Jun 22 18:59:11 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>ServiceCentral1</name>
+<Date>Sat Jun 22 18:59:21 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>ServiceCentral1_ServiceCentral1psc2_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 18:59:21 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceCentral1psc_ServiceCentral1</name>
+<Date>Sat Jun 22 18:59:21 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>wsd1_wsd1p76_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 19:00:00 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteComponentComposite</Type>
+<name>wsd1</name>
+<Date>Sat Jun 22 19:02:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CapteurTemperature1_pt1_wsd1p34_wsd1</name>
+<Date>Sat Jun 22 19:02:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>wsd1_wsd1p76_ph1_CapteurHumidite1</name>
+<Date>Sat Jun 22 19:02:08 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addCompositeComponent</Type>
+<name>ServiceC1</name>
+<Date>Sat Jun 22 19:08:44 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature1_pt1_ServiceC1psc_ServiceC1</name>
+<Date>Sat Jun 22 19:09:10 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>ActionneurVentilation1:pv1</name>
+<Date>Sat Jun 22 19:09:49 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1</name>
+<Date>Sat Jun 22 19:11:25 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature2:pt2</name>
+<Date>Sat Jun 22 21:19:23 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature2_pt2_ServiceC1psc_ServiceC1</name>
+<Date>Sat Jun 22 21:20:52 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurHumidite1:ph2</name>
+<Date>Sat Jun 22 21:23:44 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurHumidite1_ph2_ServiceC1psc_ServiceC1</name>
+<Date>Sat Jun 22 21:24:56 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature2:pt3</name>
+<Date>Sat Jun 22 21:45:05 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt4</name>
+<Date>Sat Jun 22 21:45:22 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>ActionneurVentilation1:pv2</name>
+<Date>Sat Jun 22 21:45:38 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt5</name>
+<Date>Sat Jun 22 21:46:19 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature1:pt6</name>
+<Date>Sat Jun 22 21:46:32 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CapteurTemperature2:pt7</name>
+<Date>Sat Jun 22 21:46:50 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CapteurTemperature2_pt7_pv1_ActionneurVentilation1</name>
+<Date>Wed Jun 26 10:38:10 CET 2024</Date>
+</Event>
+
+</Events>
+</Configuration>
+

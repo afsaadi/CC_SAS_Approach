@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<Configuration><name>Reconfig_test</name>
+<Events>
+
+<Event>
+<Type>addComponent</Type>
+<name>TT</name>
+<Date>Wed Jun 26 10:09:44 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CC2</name>
+<Date>Wed Jun 26 10:09:58 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>TT:ptt</name>
+<Date>Wed Jun 26 10:13:02 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CC1:pcc</name>
+<Date>Wed Jun 26 10:13:16 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>TT_ptt_pcc_CC1</name>
+<Date>Wed Jun 26 10:17:40 CET 2024</Date>
+</Event>
+
+</Events>
+</Configuration>
+
