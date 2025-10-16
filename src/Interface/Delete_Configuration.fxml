@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="458.0" styleClass="PageS" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Delete_Configuration_Controller">
+   
+   <children>
+      <ComboBox fx:id="IdNameConfig" layoutX="242.0" layoutY="93.0" prefHeight="25.0" prefWidth="155.0" styleClass="comboBox" />
+      <Label layoutX="103.0" layoutY="24.0" prefHeight="27.0" prefWidth="293.0" styleClass="Libel-CreateComp" text="Delete a configuration">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.20325203252032514">
+                     <color>
+                        <Color red="0.8117647171020508" green="0.125490203499794" blue="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3987832160200796">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.41632563976646475">
+                     <color>
+                        <Color red="0.8100000023841858" green="0.12960000336170197" blue="0.2543399930000305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5839744639057128">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6190047470944507">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7845528455284553">
+                     <color>
+                        <Color red="0.38596490025520325" green="0.2179986983537674" blue="0.2515919506549835" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.8597560975609756">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.364705890417099" blue="0.6274510025978088" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3001949191093445" green="0.3788174092769623" blue="0.7719298005104065" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <Button layoutX="331.0" layoutY="167.0" mnemonicParsing="false" onAction="#Configuration_Remove_Next" prefHeight="36.0" prefWidth="91.0" styleClass="Btn-Next" text="Next">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+      <Button layoutX="69.0" layoutY="165.0" mnemonicParsing="false" onAction="#Configuration_Exit" prefHeight="36.0" prefWidth="91.0" styleClass="Btn-Exit" text="Exit">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="69.0" layoutY="98.0" text="Configuration Name ">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+    
+   
+      
+   </children>
+</AnchorPane>

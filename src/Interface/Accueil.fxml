@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="1275.0" styleClass="PageS" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Accueil_Controller">
+   <children>
+      <Pane prefHeight="658.0" prefWidth="240.0" styleClass="PaneAcceuil" stylesheets="@application.css">
+         <children>
+            <Line endX="10.0" layoutX="102.0" layoutY="179.0" startX="-100.0" stroke="#d991a0a1" />
+            <AnchorPane layoutX="4.0" layoutY="189.0" prefHeight="78.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="19.0" prefWidth="181.0" text="Welcome to SeqPropCheck" textFill="#d49b9ba3">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="15.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+            <Button layoutY="275.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="240.0" styleClass="PaneButtonActuel" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="403.0" mnemonicParsing="false" onAction="#Home_Help" prefHeight="34.0" prefWidth="240.0" styleClass="PaneButton" text="Help" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="-3.0" layoutY="363.0" mnemonicParsing="false" onAction="#Home_About" prefHeight="34.0" prefWidth="240.0" styleClass="PaneButton" text="About" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="122.0" fitWidth="124.0" layoutX="39.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../application/data-flow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="16.0" layoutY="138.0" prefHeight="32.0" prefWidth="95.0" text="SeqProp">
+               <font>
+                  <Font name="Impact" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="107.0" layoutY="136.0" text="Check">
+               <font>
+                  <Font name="Impact" size="27.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.034225459704261246">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.27235772357723576">
+                           <color>
+                              <Color red="0.9200000166893005" green="0.6715999841690063" blue="0.7171400189399719" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.36004256015714514">
+                           <color>
+                              <Color red="0.9200000166893005" green="0.6715999841690063" blue="0.7171400189399719" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6544715447154472">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7642276422764226">
+                           <color>
+                              <Color red="0.9200000166893005" green="0.6715999841690063" blue="0.7171400189399719" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9004065040650404">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="54.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="54.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../info.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="54.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../question.png" />
+               </image>
+            </ImageView>
+            <MenuButton layoutX="1.0" layoutY="319.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="238.0" styleClass="PaneButtonConfig" text=" Configuration" textFill="#f6f6f6">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#HomeTo_AddConfig" styleClass="PaneButtonConfig_MenuHome" text="Add configuration" />
+                <MenuItem mnemonicParsing="false" onAction="#HomeTo_RemoveConfig" styleClass="PaneButtonConfig_MenuHome" text="Remove configuration" />
+              </items>
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../architechture.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="configAnchorPanee" layoutX="240.0" prefHeight="658.0" prefWidth="1040.0" styleClass="chart-series-line" stylesheets="@application.css">
+         <children>
+            <BarChart fx:id="barChart" layoutX="2.0" layoutY="297.0" prefHeight="337.0" prefWidth="645.0" styleClass="default-color0.chart-bar" stylesheets="@application.css" title="Configurations complexity">
+              <xAxis>
+                <CategoryAxis prefHeight="22.0" prefWidth="521.0" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis prefHeight="261.0" prefWidth="45.0" side="LEFT">
+                    <label>Complexity [Nbre of components]</label>
+                     <tickLabelFont>
+                        <Font name="Arial Bold" size="11.0" />
+                     </tickLabelFont>
+                </NumberAxis>
+              </yAxis>
+            </BarChart>
+            <LineChart fx:id="lineChart" layoutX="641.0" layoutY="297.0" prefHeight="323.0" prefWidth="367.0" styleClass="chart-series-symbol" stylesheets="@application.css" title="Energy consumption">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <AnchorPane layoutX="40.0" layoutY="31.0" prefHeight="200.0" prefWidth="357.0">
+               <children>
+                  <ScrollPane prefHeight="230.0" prefWidth="953.0">
+                    <content>
+                      <AnchorPane fx:id="configAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="987.0" />
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+    
+   
+      
+   </children>
+</AnchorPane>

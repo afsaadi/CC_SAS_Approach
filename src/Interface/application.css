@@ -1,0 +1,129 @@
+.PageS { 
+ 
+-fx-background-color:#ebd3d9;
+ } 
+ 
+ .Btn-Exit{ 
+ 
+-fx-background-color:#D3475E;
+ 
+ } 
+ .Btn-Next{ 
+ 
+-fx-background-color:#6873A9;
+ } 
+ .Btn-Next:hover{
+     -fx-background-color:linear-gradient(to top right, #CF203E, #505DA0);
+}
+.Btn-Exit:hover{
+    -fx-background-color:linear-gradient(to top right, #CF203E, #505DA0);
+}
+ .Libel-CreateComp{
+ 	-fx-color:linear-gradient(to top right, #CF203E, #505DA0);
+ }
+ 
+ /*--------------------------------------------------------------------------------------------- */
+ .PaneAcceuil{
+ 	-fx-background-color: #505DA0;
+ }
+  .PaneButton{ 
+ 	-fx-background-color: transparent;
+ }
+ .PaneButton:hover{
+    -fx-background-color:linear-gradient(to top right, #CF203E, #505DA0);
+}
+.PaneButtonActuel{
+	-fx-background-color:linear-gradient(to top right, #CF203E, #505DA0);
+}
+.separator{
+    -fx-background-color: #cf2141;
+}
+.buttonConfig{
+    -fx-background-color: #ebd3d9;
+     -fx-font-weight: bold; 
+}
+.buttonConfig:hover{
+    -fx-color: #CF203E ;
+     -fx-font-weight: bold;  
+}
+.Composant{
+	-fx-border-radius: 6px;
+	-fx-background-color: #cf2141;
+}
+.PaneButtonConfig{ 
+	-fx-background-color: transparent; 
+	 -fx-border-width: 0 0 2 0;
+}
+.PaneButtonConfig:hover{
+    -fx-background-color:linear-gradient(to top right, #CF203E, #505DA0);
+    -fx-border-width: 0 0 0 0;
+}
+.CadreComposant{
+	
+	-fx-border-width: 2 2 2 2;
+	-fx-border-radius: 6px;
+	-fx-border-color: #485390;
+	-fx-background-color:#ebd3d9; -fx-background-radius: 6px;
+}
+
+.PaneButtonConfig_Menu{
+	 -fx-background-color: #505DA0 ;
+	 -fx-pref-width: 240px; 
+	 -fx-text-fill: white;
+	 -fx-font-family: "Arial";  
+     -fx-font-size: 15px;  
+     -fx-font-weight: bold; 
+     -fx-cursor: hand;
+      -fx-padding: 10px 10px 10px 10px;
+}
+ 
+.PaneButtonConfig_MenuHome{
+	-fx-background-color: #505DA0 ;
+	-fx-pref-width: 238px;
+	 -fx-text-fill: white;
+	 -fx-font-family: "Arial";  
+     -fx-font-size: 15px;  
+     -fx-font-weight: bold; 
+     -fx-cursor: hand;
+      -fx-padding: 10px 10px 10px 10px;
+}
+ .PageS_Scroll{
+ 	-fx-border-width: 2 2 2 2;
+ 	-fx-background-color:#d7c1c6;
+ 	-fx-border-radius: 0px;
+ 	-fx-border-color:#485390;
+ }
+ .comboBox{
+ 	-fx-background-color:#ffff;
+ }
+ .About_Title{ 
+ 	-fx-background-color:#505DA0;  
+ }
+ .TextAreaBackground{ 
+ 	-fx-control-inner-background: #848dbc; 
+ 	-fx-background-color: #485390;  
+    -fx-text-fill: black;  
+ }
+ .totalConfig{
+ 	-fx-background-color: #485390;  
+ }
+ 
+ .backgrdConfig{
+ 	-fx-background-color: #9ca3c9; 
+ }
+ .buttonXML{
+ 	-fx-background-color: transparent; 
+ }
+  
+.default-color0.chart-bar{
+ 	-fx-bar-fill: #9ca3c9;
+ }
+ 
+.default-color0.chart-series-line{
+ 	 -fx-stroke: #9ca3c9; 
+ }
+.default-color0.chart-series-symbol{
+ 	-fx-background-color:  red , white  ; 
+ }
+ 
+  

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="557.0" styleClass="PageComposant" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="IdNameComponent" layoutX="270.0" layoutY="94.0" prefHeight="26.0" prefWidth="166.0" promptText="Name of component" text=" " />
+      <Label layoutX="136.0" layoutY="27.0" prefHeight="27.0" prefWidth="309.0" styleClass="Libel-CreateComp" text="Create a new Component ">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.20325203252032514">
+                     <color>
+                        <Color red="0.8117647171020508" green="0.125490203499794" blue="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.3987832160200796">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.41632563976646475">
+                     <color>
+                        <Color red="0.8100000023841858" green="0.12960000336170197" blue="0.2543399930000305" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5839744639057128">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6190047470944507">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.7845528455284553">
+                     <color>
+                        <Color red="0.38596490025520325" green="0.2179986983537674" blue="0.2515919506549835" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.8597560975609756">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.364705890417099" blue="0.6274510025978088" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3001949191093445" green="0.3788174092769623" blue="0.7719298005104065" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <Button layoutX="384.0" layoutY="333.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="118.0" styleClass="Btn-Next" text="Next">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+      <Button layoutX="62.0" layoutY="333.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="118.0" styleClass="Btn-Exit" text="Exit">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="70.0" layoutY="98.0" text="Component Name ">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="194.0" prefHeight="18.0" prefWidth="166.0" text="Execution Time (hour)">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="IdMinExecTime" layoutX="291.0" layoutY="190.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+      <Label layoutX="267.0" layoutY="194.0" text="Min "><font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="IdMaxExecTime" layoutX="388.0" layoutY="190.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+      <Label layoutX="361.0" layoutY="194.0" text="Max">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="237.0" text="Memory (GB)">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="267.0" layoutY="237.0" text="Min "><font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+
+      <Label layoutX="267.0" layoutY="280.0" text="Min "><font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+
+     
+      <Label layoutX="72.0" layoutY="283.0" text="Energy (kilowatt )">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="IdMinMemory" layoutX="291.0" layoutY="233.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+      <TextField fx:id="IdMinEnergy" layoutX="291.0" layoutY="276.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+      <Label layoutX="361.0" layoutY="237.0" text="Max"><font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+
+      <Label layoutX="361.0" layoutY="280.0" text="Max"><font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+
+      <TextField fx:id="IdMaxMemory" layoutX="388.0" layoutY="233.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+   
+      <TextField fx:id="IdMaxEnergy" layoutX="388.0" layoutY="276.0" prefHeight="25.0" prefWidth="45.0" styleClass="textfield" />
+      <Label layoutX="72.0" layoutY="144.0" prefHeight="15.0" prefWidth="147.0" text="Execution Method">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="270.0" layoutY="139.0" prefHeight="25.0" prefWidth="166.0" styleClass="textfield" />
+    
+   
+      
+   </children>
+</AnchorPane>
