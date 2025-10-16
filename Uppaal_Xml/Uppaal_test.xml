@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<nta xmlns="http://www.it.uu.se/research/group/darts/uppaal/flat-1_2">
+
+<declaration>
+chan x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30,x31,x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63,x64,x65,x66,x67,x68,x69,x70,x71,x72,x73,x74,x75,x76,x77,x78,x79,x80,x81,x82,x83,x84,x85,x86,x87,x88,x89,x90,x91,x92,x93,x94,x95,x96,x97,x98,x99,x100,x101,x102,x103,x104,x105,x106,x107,x108,x109,x110,x111,x112,x113,x114,x115,x116,x117,x118,x119,x120,x121,x122,x123,x124,x125,x126,x127,x128,x129,x130,x131,x132,x133,x134,x135,x136,x137,x138,x139,x140,x141,x142,x143,x144,x145,x146,x147,x148,x149,x150,x151,x152,x153,x154,x155,x156,x157,x158,x159,x160,x161,x162,x163,x164,x165,x166,x167,x168,x169,x170,x171,x172,x173,x174,x175,x176,x177,x178,x179,x180,x181,x182,x183,x184,x185,x186,x187,x188,x189,x190,x191,x192,x193,x194,x195,x196,x197,x198,x199,exIN1,exOUT0,exOUT1;
+int traitement =1000;
+int start = 1;
+int size = 2;
+int TTtoptt = 0;
+int ptttoTT_ptt_pcc_CC1 = 0;
+int TT_ptt_pcc_CC1topcc = 0;
+int pcctoCC1 = 0;
+</declaration>
+
+<template x="5" y="5">
+
+<name>TT</name>
+
+<declaration>int energy =7 ;int memory =2;int waiting_time =100;int activate =1 ;int execution_time =2;</declaration>
+
+<location id="id0" x="-195" y="-144">
+<name x="-210" y="-131">Init_TT</name>
+</location>
+
+<location id="id1" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id2" x="-500" y="-240"><name x="-500" y="-230">ptt</name>
+</location>
+<init ref="id0"></init>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-650" y="-245">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &gt;=4 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+TTtoptt = 1 , 
+start = 0  </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-410" y="-230">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &lt;4 &amp;&amp; 
+energy &gt;2 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+TTtoptt = 1 , 
+start = 0  </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id2"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 5 || 
+energy &lt;=2</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=2&amp;&amp;
+activate ==1</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id0"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-255" y="-220">execution_time != 0&amp;&amp; energy &gt;2</label>
+<label kind="assignment" x="-290" y="-205">execution_time = execution_time - 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>ptt</name><declaration>int  activate =1 ; </declaration>
+
+
+<location id="id3" x="-187" y="-85"><name x="-204" y="-68">Init_ptt</name>
+</location>
+<location id="id4" x="-8" y="-85"></location>
+<location id="id5" x="170" y="-85"></location>
+<init ref="id3"></init>
+<transition><source ref="id3"></source><target ref="id4"></target><label x="-110" y="-110" kind="synchronisation">x0?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><label kind="assignment" x="-145" y="-60">ptttoTT_ptt_pcc_CC1=1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id4"></source><target ref="id5"></target><label x="75" y="-110" kind="synchronisation">x1!</label><label kind="guard" x="25" y="-75">activate == 1 &amp;&amp;
+TTtoptt==1</label><label kind="assignment" x="25" y="-42">TTtoptt= 0</label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>CC1</name>
+
+<declaration>int energy =22 ;int memory =2;int waiting_time =100;int activate =1 ;int execution_time =0;</declaration>
+
+<location id="id6" x="-195" y="-144">
+<name x="-210" y="-131">Init_CC1</name>
+</location>
+
+<location id="id7" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id8" x="150" y="-240"><name x="150" y="-230">pcc</name>
+</location>
+<init ref="id6"></init>
+
+<transition>
+<source ref="id6"></source>
+<target ref="id8"></target>
+<label x="100" y="-240" kind="synchronisation">x2?</label><label kind="guard" x="190" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 7&amp;&amp;
+pcctoCC1 == 1 &amp;&amp; 
+memory &lt;= 22 &amp;&amp; 
+energy &gt;=12</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2,
+memory = memory + 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id6"></source>
+<target ref="id8"></target>
+<label x="100" y="-240" kind="synchronisation">x2?</label><label kind="guard" x="-50" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 7&amp;&amp;
+pcctoCC1 == 1 &amp;&amp; 
+memory &lt;= 22 &amp;&amp; 
+energy &lt;12 &amp;&amp; 
+energy &gt;2</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1,
+memory = memory + 2</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id8"></source>
+<target ref="id6"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="guard" x="190" y="-240">memory &lt;= 22</label>
+</transition>
+
+<transition>
+<source ref="id8"></source>
+<target ref="id7"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 22 || 
+energy &lt;=2&amp;&amp; 
+waiting_time &lt; 7</label></transition>
+
+<transition>
+<source ref="id6"></source>
+<target ref="id7"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=2&amp;&amp;
+activate ==1</label>
+</transition>
+
+</template>
+
+<template x="5" y="5">
+<name>pcc</name><declaration>int waiting_time_port ;int  activate =1 ; </declaration>
+
+
+<location id="id9" x="-272" y="-85"><name x="-290" y="-68">Init_pcc</name>
+</location>
+<location id="id10" x="-110" y="-85"></location>
+<location id="id11" x="76" y="-85"></location>
+<init ref="id9"></init>
+<transition><source ref="id9"></source><target ref="id10"></target><label x="-212" y="-110" kind="synchronisation">x3?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><label kind="assignment" x="-230" y="-60">pcctoCC1= 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id10"></source><target ref="id11"></target><label x="-25" y="-110" kind="synchronisation">x2!</label><label kind="guard" x="-85" y="-75">activate == 1 &amp;&amp;
+TT_ptt_pcc_CC1topcc==1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>TT_ptt_pcc_CC1</name>
+<declaration>int BW =3 ;int transfert =5 ;int execution =2 ;int activate = 1 ;</declaration>
+
+<location id="id12" x="-289" y="-85"><name x="-357" y="-68">TT_ptt_pcc_CC1</name>
+</location>
+<location id="id13" x="-110" y="-85"></location>
+<location id="id14" x="59" y="-85"></location>
+<init ref="id12"></init>
+<transition><source ref="id12"></source><target ref="id13"></target><label x="-220" y="-110" kind="synchronisation">x1?</label><label kind="guard" x="-225" y="-75">BW &gt;=3 &amp;&amp;
+activate ==1&amp;&amp;
+ptttoTT_ptt_pcc_CC1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id13"></source><target ref="id14"></target><label x="-42" y="-110" kind="synchronisation">x3!</label><label kind="guard" x="-76" y="-76">BW &gt;=3&amp;&amp;
+activate ==1</label><label kind="assignment" x="-76" y="-42">TT_ptt_pcc_CC1topcc= 1, 
+traitement = traitement - 7</label></transition>
+</template>
+
+<system>system TT,ptt,CC1,pcc,TT_ptt_pcc_CC1;
+</system>
+<queries><query><formula>E&lt;&gt; traitement &gt; 0
+</formula>
+</query><query><formula>E&lt;&gt; TT.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; TT.energy &lt;=2
+</formula>
+</query><query><formula>E&lt;&gt; TT.memory &gt;= 5
+</formula>
+</query><query><formula>E&lt;&gt; TT.memory &lt; 5
+</formula>
+</query><query><formula>E&lt;&gt; TT.energy &gt;2
+</formula>
+</query><query><formula>E&lt;&gt; CC1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CC1.energy &lt;=2
+</formula>
+</query><query><formula>E&lt;&gt; CC1.memory &gt;= 22
+</formula>
+</query><query><formula>E&lt;&gt; CC1.memory &lt; 22
+</formula>
+</query><query><formula>E&lt;&gt; CC1.energy &gt;2
+</formula>
+</query><query><formula>E&lt;&gt; TT_ptt_pcc_CC1.BW &lt;= 3
+</formula>
+</query>
+</queries>
+</nta>

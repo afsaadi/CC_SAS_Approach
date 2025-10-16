@@ -1,0 +1,1085 @@
+<?xml version="1.0" ?>
+<nta xmlns="http://www.it.uu.se/research/group/darts/uppaal/flat-1_2">
+
+<declaration>
+chan x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30,x31,x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63,x64,x65,x66,x67,x68,x69,x70,x71,x72,x73,x74,x75,x76,x77,x78,x79,x80,x81,x82,x83,x84,x85,x86,x87,x88,x89,x90,x91,x92,x93,x94,x95,x96,x97,x98,x99,x100,x101,x102,x103,x104,x105,x106,x107,x108,x109,x110,x111,x112,x113,x114,x115,x116,x117,x118,x119,x120,x121,x122,x123,x124,x125,x126,x127,x128,x129,x130,x131,x132,x133,x134,x135,x136,x137,x138,x139,x140,x141,x142,x143,x144,x145,x146,x147,x148,x149,x150,x151,x152,x153,x154,x155,x156,x157,x158,x159,x160,x161,x162,x163,x164,x165,x166,x167,x168,x169,x170,x171,x172,x173,x174,x175,x176,x177,x178,x179,x180,x181,x182,x183,x184,x185,x186,x187,x188,x189,x190,x191,x192,x193,x194,x195,x196,x197,x198,x199,exIN1,exOUT0,exOUT1;
+int traitement =1000;
+int start = 1;
+int size = 2;
+int CapteurHumidite1toph2 = 0;
+int ph2toCapteurHumidite1_ph2_ServiceC1psc_ServiceC1 = 0;
+int CapteurHumidite1_ph2_ServiceC1psc_ServiceC1toServiceC1psc = 0;
+int ServiceC1psctoServiceC1 = 0;
+int ServiceC1toServiceC1psr = 0;
+int ServiceC1psrtoServiceC1_ServiceC1psr_pv1_ActionneurVentilation1 = 0;
+int ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1topv1 = 0;
+int pv1toActionneurVentilation1 = 0;
+int CentreAnalyse1toCentreAnalyse1_pca2_pct1_CentreTraitement1 = 0;
+int CentreAnalyse1_pca2_pct1_CentreTraitement1toCentreTraitement1 = 0;
+int CentreTraitement1toCentreTraitement1_pct2_ppd_PriseDecision1 = 0;
+int CentreTraitement1_pct2_ppd_PriseDecision1toPriseDecision1 = 0;
+</declaration>
+
+<template x="5" y="5">
+
+<name>CapteurTemperature1</name>
+
+<declaration>int energy =198 ;int memory =21;int waiting_time =200;int activate =1 ;int execution_time =0;</declaration>
+
+<location id="id0" x="-195" y="-144">
+<name x="-210" y="-131">Init_CapteurTemperature1</name>
+</location>
+
+<location id="id1" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id2" x="-500" y="-240"><name x="-500" y="-230">pt6</name>
+</location>
+<location id="id3" x="-500" y="-90"><name x="-500" y="-80">pt1</name>
+</location>
+<location id="id4" x="150" y="-240"><name x="150" y="-230">pt5</name>
+</location>
+<location id="id5" x="150" y="-90"><name x="150" y="-80">pt4</name>
+</location>
+<init ref="id0"></init>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-650" y="-245">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &gt;=110 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-410" y="-230">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &lt;110 &amp;&amp; 
+energy &gt;21 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id2"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 34 || 
+energy &lt;=21</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id3"></target>
+<label x="-460" y="-90" kind="synchronisation">x1!</label><label kind="guard" x="-650" y="-95">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &gt;=110 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-145">energy = energy - 2 </label>
+<nail x="-500" y="-60"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id3"></target>
+<label x="-460" y="-90" kind="synchronisation">x1!</label><label kind="guard" x="-410" y="-80">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &lt;110 &amp;&amp; 
+energy &gt;21 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-125">energy = energy - 1 </label>
+<nail x="-500" y="-120"></nail></transition>
+
+<transition>
+<source ref="id3"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 34 || 
+energy &lt;=21</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id4"></target>
+<label x="100" y="-240" kind="synchronisation">x2?</label><label kind="guard" x="190" y="-240">activate ==0  &amp;&amp; 
+memory &lt;= 34 &amp;&amp; 
+energy &gt;=110</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id4"></target>
+<label x="100" y="-240" kind="synchronisation">x2?</label><label kind="guard" x="-50" y="-240">activate ==0  &amp;&amp; 
+energy &lt;110 &amp;&amp; 
+energy &gt;21</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id4"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 34 || 
+energy &lt;=21</label></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id5"></target>
+<label x="100" y="-90" kind="synchronisation">x3?</label><label kind="guard" x="190" y="-90">activate ==0  &amp;&amp; 
+memory &lt;= 34 &amp;&amp; 
+energy &gt;=110</label>
+<label kind="assignment" x="190" y="-120">energy = energy - 2</label><nail x="150" y="-60"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id5"></target>
+<label x="100" y="-90" kind="synchronisation">x3?</label><label kind="guard" x="-50" y="-90">activate ==0  &amp;&amp; 
+energy &lt;110 &amp;&amp; 
+energy &gt;21</label>
+<label kind="assignment" x="-50" y="-120">energy = energy - 1</label><nail x="150" y="-120"></nail></transition>
+
+<transition>
+<source ref="id5"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 34 || 
+energy &lt;=21</label></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=21&amp;&amp;
+activate ==0</label>
+</transition>
+
+</template>
+
+<template x="5" y="5">
+<name>pt5</name><declaration>int waiting_time_port ;int  activate =0 ; </declaration>
+
+
+<location id="id6" x="-272" y="-85"><name x="-290" y="-68">Init_pt5</name>
+</location>
+<location id="id7" x="-110" y="-85"></location>
+<location id="id8" x="76" y="-85"></location>
+<init ref="id6"></init>
+<transition><source ref="id6"></source><target ref="id7"></target><label x="-212" y="-110" kind="synchronisation">x4?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id7"></source><target ref="id8"></target><label x="-25" y="-110" kind="synchronisation">x2!</label><label kind="guard" x="-85" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pt4</name><declaration>int waiting_time_port ;int  activate =0 ; </declaration>
+
+
+<location id="id9" x="-272" y="-85"><name x="-290" y="-68">Init_pt4</name>
+</location>
+<location id="id10" x="-110" y="-85"></location>
+<location id="id11" x="76" y="-85"></location>
+<init ref="id9"></init>
+<transition><source ref="id9"></source><target ref="id10"></target><label x="-212" y="-110" kind="synchronisation">x5?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id10"></source><target ref="id11"></target><label x="-25" y="-110" kind="synchronisation">x3!</label><label kind="guard" x="-85" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pt6</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id12" x="-187" y="-85"><name x="-204" y="-68">Init_pt6</name>
+</location>
+<location id="id13" x="-8" y="-85"></location>
+<location id="id14" x="170" y="-85"></location>
+<init ref="id12"></init>
+<transition><source ref="id12"></source><target ref="id13"></target><label x="-110" y="-110" kind="synchronisation">x0?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id13"></source><target ref="id14"></target><label x="75" y="-110" kind="synchronisation">x6!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pt1</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id15" x="-187" y="-85"><name x="-204" y="-68">Init_pt1</name>
+</location>
+<location id="id16" x="-8" y="-85"></location>
+<location id="id17" x="170" y="-85"></location>
+<init ref="id15"></init>
+<transition><source ref="id15"></source><target ref="id16"></target><label x="-110" y="-110" kind="synchronisation">x1?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id16"></source><target ref="id17"></target><label x="75" y="-110" kind="synchronisation">x7!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>CapteurTemperature2</name>
+
+<declaration>int energy =33 ;int memory =21;int waiting_time =200;int activate =1 ;int execution_time =0;</declaration>
+
+<location id="id18" x="-195" y="-144">
+<name x="-210" y="-131">Init_CapteurTemperature2</name>
+</location>
+
+<location id="id19" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id20" x="-500" y="-240"><name x="-500" y="-230">pt7</name>
+</location>
+<location id="id21" x="-500" y="-90"><name x="-500" y="-80">pt2</name>
+</location>
+<location id="id22" x="150" y="-240"><name x="150" y="-230">pt3</name>
+</location>
+<init ref="id18"></init>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id20"></target>
+<label x="-460" y="-240" kind="synchronisation">x8!</label><label kind="guard" x="-650" y="-245">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &gt;=38 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id20"></target>
+<label x="-460" y="-240" kind="synchronisation">x8!</label><label kind="guard" x="-410" y="-230">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &lt;38 &amp;&amp; 
+energy &gt;21 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id19"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 34 || 
+energy &lt;=21</label>
+</transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id21"></target>
+<label x="-460" y="-90" kind="synchronisation">x9!</label><label kind="guard" x="-650" y="-95">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &gt;=38 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-145">energy = energy - 2 </label>
+<nail x="-500" y="-60"></nail></transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id21"></target>
+<label x="-460" y="-90" kind="synchronisation">x9!</label><label kind="guard" x="-410" y="-80">activate ==0 
+&amp;&amp; start ==0 &amp;&amp; 
+energy &lt;38 &amp;&amp; 
+energy &gt;21 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-125">energy = energy - 1 </label>
+<nail x="-500" y="-120"></nail></transition>
+
+<transition>
+<source ref="id21"></source>
+<target ref="id19"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 34 || 
+energy &lt;=21</label>
+</transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id22"></target>
+<label x="100" y="-240" kind="synchronisation">x10?</label><label kind="guard" x="190" y="-240">activate ==0  &amp;&amp; 
+memory &lt;= 34 &amp;&amp; 
+energy &gt;=38</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id22"></target>
+<label x="100" y="-240" kind="synchronisation">x10?</label><label kind="guard" x="-50" y="-240">activate ==0  &amp;&amp; 
+energy &lt;38 &amp;&amp; 
+energy &gt;21</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id22"></source>
+<target ref="id19"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 34 || 
+energy &lt;=21</label></transition>
+
+<transition>
+<source ref="id18"></source>
+<target ref="id19"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=21&amp;&amp;
+activate ==0</label>
+</transition>
+
+</template>
+
+<template x="5" y="5">
+<name>pt3</name><declaration>int waiting_time_port ;int  activate =0 ; </declaration>
+
+
+<location id="id23" x="-272" y="-85"><name x="-290" y="-68">Init_pt3</name>
+</location>
+<location id="id24" x="-110" y="-85"></location>
+<location id="id25" x="76" y="-85"></location>
+<init ref="id23"></init>
+<transition><source ref="id23"></source><target ref="id24"></target><label x="-212" y="-110" kind="synchronisation">x11?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id24"></source><target ref="id25"></target><label x="-25" y="-110" kind="synchronisation">x10!</label><label kind="guard" x="-85" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pt7</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id26" x="-187" y="-85"><name x="-204" y="-68">Init_pt7</name>
+</location>
+<location id="id27" x="-8" y="-85"></location>
+<location id="id28" x="170" y="-85"></location>
+<init ref="id26"></init>
+<transition><source ref="id26"></source><target ref="id27"></target><label x="-110" y="-110" kind="synchronisation">x8?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id27"></source><target ref="id28"></target><label x="75" y="-110" kind="synchronisation">x12!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pt2</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id29" x="-187" y="-85"><name x="-204" y="-68">Init_pt2</name>
+</location>
+<location id="id30" x="-8" y="-85"></location>
+<location id="id31" x="170" y="-85"></location>
+<init ref="id29"></init>
+<transition><source ref="id29"></source><target ref="id30"></target><label x="-110" y="-110" kind="synchronisation">x9?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id30"></source><target ref="id31"></target><label x="75" y="-110" kind="synchronisation">x13!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>CapteurHumidite1</name>
+
+<declaration>int energy =54 ;int memory =126;int waiting_time =231;int activate =1 ;int execution_time =2;</declaration>
+
+<location id="id32" x="-195" y="-144">
+<name x="-210" y="-131">Init_CapteurHumidite1</name>
+</location>
+
+<location id="id33" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id34" x="-500" y="-240"><name x="-500" y="-230">ph2</name>
+</location>
+<location id="id35" x="150" y="-240"><name x="150" y="-230">ph1</name>
+</location>
+<init ref="id32"></init>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id34"></target>
+<label x="-460" y="-240" kind="synchronisation">x14!</label><label kind="guard" x="-650" y="-245">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &gt;=72 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+CapteurHumidite1toph2 = 1 , 
+start = 0  </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id34"></target>
+<label x="-460" y="-240" kind="synchronisation">x14!</label><label kind="guard" x="-410" y="-230">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &lt;72 &amp;&amp; 
+energy &gt;54 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+CapteurHumidite1toph2 = 1 , 
+start = 0  </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id34"></source>
+<target ref="id33"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 222 || 
+energy &lt;=54</label>
+</transition>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id35"></target>
+<label x="100" y="-240" kind="synchronisation">x15?</label><label kind="guard" x="190" y="-240">activate ==0  &amp;&amp; 
+memory &lt;= 222 &amp;&amp; 
+energy &gt;=72</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id35"></target>
+<label x="100" y="-240" kind="synchronisation">x15?</label><label kind="guard" x="-50" y="-240">activate ==0  &amp;&amp; 
+energy &lt;72 &amp;&amp; 
+energy &gt;54</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id35"></source>
+<target ref="id33"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 222 || 
+energy &lt;=54</label></transition>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id33"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=54&amp;&amp;
+activate ==1</label>
+</transition>
+
+<transition>
+<source ref="id32"></source>
+<target ref="id32"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-255" y="-220">execution_time != 0&amp;&amp; energy &gt;54</label>
+<label kind="assignment" x="-290" y="-205">execution_time = execution_time - 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>ph1</name><declaration>int waiting_time_port ;int  activate =0 ; </declaration>
+
+
+<location id="id36" x="-272" y="-85"><name x="-290" y="-68">Init_ph1</name>
+</location>
+<location id="id37" x="-110" y="-85"></location>
+<location id="id38" x="76" y="-85"></location>
+<init ref="id36"></init>
+<transition><source ref="id36"></source><target ref="id37"></target><label x="-212" y="-110" kind="synchronisation">x16?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id37"></source><target ref="id38"></target><label x="-25" y="-110" kind="synchronisation">x15!</label><label kind="guard" x="-85" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>ph2</name><declaration>int  activate =1 ; </declaration>
+
+
+<location id="id39" x="-187" y="-85"><name x="-204" y="-68">Init_ph2</name>
+</location>
+<location id="id40" x="-8" y="-85"></location>
+<location id="id41" x="170" y="-85"></location>
+<init ref="id39"></init>
+<transition><source ref="id39"></source><target ref="id40"></target><label x="-110" y="-110" kind="synchronisation">x14?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><label kind="assignment" x="-145" y="-60">ph2toCapteurHumidite1_ph2_ServiceC1psc_ServiceC1=1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id40"></source><target ref="id41"></target><label x="75" y="-110" kind="synchronisation">x17!</label><label kind="guard" x="25" y="-75">activate == 1 &amp;&amp;
+CapteurHumidite1toph2==1</label><label kind="assignment" x="25" y="-42">CapteurHumidite1toph2= 0</label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>ActionneurVentilation1</name>
+
+<declaration>int energy =196 ;int memory =25;int waiting_time =920;int activate =1 ;int execution_time =0;</declaration>
+
+<location id="id42" x="-195" y="-144">
+<name x="-210" y="-131">Init_ActionneurVentilation1</name>
+</location>
+
+<location id="id43" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id44" x="-500" y="-240"><name x="-500" y="-230">pv2</name>
+</location>
+<location id="id45" x="150" y="-240"><name x="150" y="-230">pv1</name>
+</location>
+<init ref="id42"></init>
+
+<transition>
+<source ref="id42"></source>
+<target ref="id44"></target>
+<label x="-460" y="-240" kind="synchronisation">x18!</label><label kind="guard" x="-650" y="-245">activate ==0  &amp;&amp; 
+waiting_time &gt;= 13
+&amp;&amp; start ==0 &amp;&amp; 
+memory &lt;= 33 &amp;&amp; 
+energy &gt;=111 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+memory = memory + 2</label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id42"></source>
+<target ref="id44"></target>
+<label x="-460" y="-240" kind="synchronisation">x18!</label><label kind="guard" x="-410" y="-230">activate ==0  &amp;&amp; 
+waiting_time &gt;= 13
+&amp;&amp; start ==0 &amp;&amp; 
+memory &lt;= 33 &amp;&amp; 
+energy &lt;111 &amp;&amp; 
+energy &gt;22 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+memory = memory + 2</label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id44"></source>
+<target ref="id43"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 33 || 
+energy &lt;=22&amp;&amp; 
+waiting_time &lt; 13</label>
+</transition>
+
+<transition>
+<source ref="id42"></source>
+<target ref="id45"></target>
+<label x="100" y="-240" kind="synchronisation">x19?</label><label kind="guard" x="190" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 13&amp;&amp;
+pv1toActionneurVentilation1 == 1 &amp;&amp; 
+memory &lt;= 33 &amp;&amp; 
+energy &gt;=111</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2,
+memory = memory + 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id42"></source>
+<target ref="id45"></target>
+<label x="100" y="-240" kind="synchronisation">x19?</label><label kind="guard" x="-50" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 13&amp;&amp;
+pv1toActionneurVentilation1 == 1 &amp;&amp; 
+memory &lt;= 33 &amp;&amp; 
+energy &lt;111 &amp;&amp; 
+energy &gt;22</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1,
+memory = memory + 2</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id45"></source>
+<target ref="id42"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="guard" x="190" y="-240">memory &lt;= 33</label>
+</transition>
+
+<transition>
+<source ref="id45"></source>
+<target ref="id43"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 33 || 
+energy &lt;=22&amp;&amp; 
+waiting_time &lt; 13</label></transition>
+
+<transition>
+<source ref="id42"></source>
+<target ref="id43"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=22&amp;&amp;
+activate ==1</label>
+</transition>
+
+</template>
+
+<template x="5" y="5">
+<name>pv1</name><declaration>int waiting_time_port ;int  activate =1 ; </declaration>
+
+
+<location id="id46" x="-272" y="-85"><name x="-290" y="-68">Init_pv1</name>
+</location>
+<location id="id47" x="-110" y="-85"></location>
+<location id="id48" x="76" y="-85"></location>
+<init ref="id46"></init>
+<transition><source ref="id46"></source><target ref="id47"></target><label x="-212" y="-110" kind="synchronisation">x20?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><label kind="assignment" x="-230" y="-60">pv1toActionneurVentilation1= 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id47"></source><target ref="id48"></target><label x="-25" y="-110" kind="synchronisation">x19!</label><label kind="guard" x="-85" y="-75">activate == 1 &amp;&amp;
+ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1topv1==1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pv2</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id49" x="-187" y="-85"><name x="-204" y="-68">Init_pv2</name>
+</location>
+<location id="id50" x="-8" y="-85"></location>
+<location id="id51" x="170" y="-85"></location>
+<init ref="id49"></init>
+<transition><source ref="id49"></source><target ref="id50"></target><label x="-110" y="-110" kind="synchronisation">x18?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id50"></source><target ref="id51"></target><label x="75" y="-110" kind="synchronisation">x21!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>ServiceC1</name>
+
+<declaration>int energy =229 ;int memory =212;int waiting_time =-1;int activate =1 ;int execution_time =10;</declaration>
+
+<location id="id52" x="-195" y="-144">
+<name x="-210" y="-131">Init_ServiceC1</name>
+</location>
+
+<location id="id53" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id54" x="-500" y="-240"><name x="-500" y="-230">ServiceC1psr</name>
+</location>
+<location id="id55" x="150" y="-240"><name x="150" y="-230">ServiceC1psc</name>
+</location>
+<init ref="id52"></init>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id54"></target>
+<label x="-460" y="-240" kind="synchronisation">x22!</label><label kind="guard" x="-650" y="-245">activate ==0  &amp;&amp; 
+waiting_time &gt;= 7
+&amp;&amp; start ==0
+&amp;&amp;ServiceC1toServiceC1psr==1 &amp;&amp; 
+energy &gt;=177 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id54"></target>
+<label x="-460" y="-240" kind="synchronisation">x22!</label><label kind="guard" x="-410" y="-230">activate ==0  &amp;&amp; 
+waiting_time &gt;= 7
+&amp;&amp; start ==0
+&amp;&amp;ServiceC1toServiceC1psr==1 &amp;&amp; 
+energy &lt;177 &amp;&amp; 
+energy &gt;123 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id54"></source>
+<target ref="id53"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 233 || 
+energy &lt;=123&amp;&amp; 
+waiting_time &lt; 7</label>
+</transition>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id55"></target>
+<label x="100" y="-240" kind="synchronisation">x23?</label><label kind="guard" x="190" y="-240">activate ==0  &amp;&amp; 
+waiting_time &gt;= 7 &amp;&amp; 
+memory &lt;= 233 &amp;&amp; 
+energy &gt;=177</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id55"></target>
+<label x="100" y="-240" kind="synchronisation">x23?</label><label kind="guard" x="-50" y="-240">activate ==0  &amp;&amp; 
+waiting_time &gt;= 7 &amp;&amp; 
+energy &lt;177 &amp;&amp; 
+energy &gt;123</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id55"></source>
+<target ref="id53"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 233 || 
+energy &lt;=123&amp;&amp; 
+waiting_time &lt; 7</label></transition>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id53"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=123&amp;&amp;
+activate ==1</label>
+</transition>
+
+<transition>
+<source ref="id52"></source>
+<target ref="id52"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-255" y="-220">execution_time != 0
+&amp;&amp;ServiceC1toServiceC1psr==1&amp;&amp; energy &gt;123</label>
+<label kind="assignment" x="-290" y="-205">execution_time = execution_time - 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>ServiceC1psc</name><declaration>int waiting_time_port ;int  activate =1 ; </declaration>
+
+
+<location id="id56" x="-272" y="-85"><name x="-290" y="-68">Init_ServiceC1psc</name>
+</location>
+<location id="id57" x="-110" y="-85"></location>
+<location id="id58" x="76" y="-85"></location>
+<init ref="id56"></init>
+<transition><source ref="id56"></source><target ref="id57"></target><label x="-212" y="-110" kind="synchronisation">x24?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><label kind="assignment" x="-230" y="-60">ServiceC1psctoServiceC1= 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id57"></source><target ref="id58"></target><label x="-25" y="-110" kind="synchronisation">x23!</label><label kind="guard" x="-85" y="-75">activate == 1 &amp;&amp;
+CapteurHumidite1_ph2_ServiceC1psc_ServiceC1toServiceC1psc==1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>ServiceC1psr</name><declaration>int  activate =1 ; </declaration>
+
+
+<location id="id59" x="-187" y="-85"><name x="-204" y="-68">Init_ServiceC1psr</name>
+</location>
+<location id="id60" x="-8" y="-85"></location>
+<location id="id61" x="170" y="-85"></location>
+<init ref="id59"></init>
+<transition><source ref="id59"></source><target ref="id60"></target><label x="-110" y="-110" kind="synchronisation">x22?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><label kind="assignment" x="-145" y="-60">ServiceC1psrtoServiceC1_ServiceC1psr_pv1_ActionneurVentilation1=1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id60"></source><target ref="id61"></target><label x="75" y="-110" kind="synchronisation">x25!</label><label kind="guard" x="25" y="-75">activate == 1 &amp;&amp;
+ServiceC1toServiceC1psr==1</label><label kind="assignment" x="25" y="-42">ServiceC1toServiceC1psr= 0</label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>CentreAnalyse1ServiceC1</name>
+
+<declaration>int energy =89 ;int memory =90;int waiting_time =89;int execution_time =2;int activate =1 ;</declaration>
+
+<location id="id62" x="-204" y="-135">
+<name x="-221" y="-118">CentreAnalyse1</name>
+</location>
+
+<location id="id63" x="-331" y="-240"><name x="-331" y="-230">pca2</name>
+</location>
+<location id="id64" x="-40" y="-240"><name x="-40" y="-230">psc1</name>
+</location>
+<init ref="id62"></init>
+
+<transition>
+<source ref="id62"></source>
+<target ref="id63"></target>
+<label x="-291" y="-240" kind="synchronisation">x26!</label><label kind="guard" x="-341" y="-220">waiting_time &gt;= 89 &amp;&amp; 
+memory &gt;= 90 &amp;&amp; 
+energy &gt;=89&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id62"></source>
+<target ref="id64"></target>
+<label x="-70" y="-270" kind="synchronisation">x27?</label><label kind="guard" x="-50" y="-220">waiting_time &gt;= 89 &amp;&amp; 
+memory &gt;= 90 &amp;&amp; 
+energy &gt;=89&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id64"></source>
+<target ref="id62"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="assignment" x="50" y="-50">CentreAnalyse1toCentreAnalyse1_pca2_pct1_CentreTraitement1= 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+
+<name>CentreTraitement1ServiceC1</name>
+
+<declaration>int energy =120 ;int memory =233;int waiting_time =100;int execution_time =43;int activate =1 ;</declaration>
+
+<location id="id65" x="-204" y="-135">
+<name x="-221" y="-118">CentreTraitement1</name>
+</location>
+
+<location id="id66" x="-331" y="-240"><name x="-331" y="-230">pct2</name>
+</location>
+<location id="id67" x="-40" y="-240"><name x="-40" y="-230">pct1</name>
+</location>
+<init ref="id65"></init>
+
+<transition>
+<source ref="id65"></source>
+<target ref="id66"></target>
+<label x="-291" y="-240" kind="synchronisation">x28!</label><label kind="guard" x="-341" y="-220">waiting_time &gt;= 100 &amp;&amp; 
+memory &gt;= 233 &amp;&amp; 
+energy &gt;=120&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id65"></source>
+<target ref="id67"></target>
+<label x="-70" y="-270" kind="synchronisation">x29?</label><label kind="guard" x="-50" y="-220">waiting_time &gt;= 100 &amp;&amp; 
+memory &gt;= 233 &amp;&amp; 
+energy &gt;=120&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id67"></source>
+<target ref="id65"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="assignment" x="50" y="-50">CentreTraitement1toCentreTraitement1_pct2_ppd_PriseDecision1= 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+
+<name>PriseDecision1ServiceC1</name>
+
+<declaration>int energy =231 ;int memory =232;int waiting_time =120;int execution_time =0;int activate =1 ;</declaration>
+
+<location id="id68" x="-204" y="-135">
+<name x="-221" y="-118">PriseDecision1</name>
+</location>
+
+<location id="id69" x="-331" y="-240"><name x="-331" y="-230">ppd2</name>
+</location>
+<location id="id70" x="-40" y="-240"><name x="-40" y="-230">ppd</name>
+</location>
+<init ref="id68"></init>
+
+<transition>
+<source ref="id68"></source>
+<target ref="id69"></target>
+<label x="-291" y="-240" kind="synchronisation">x30!</label><label kind="guard" x="-341" y="-220">waiting_time &gt;= 120 &amp;&amp; 
+memory &gt;= 232 &amp;&amp; 
+energy &gt;=231&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id68"></source>
+<target ref="id70"></target>
+<label x="-70" y="-270" kind="synchronisation">x31?</label><label kind="guard" x="-50" y="-220">waiting_time &gt;= 120 &amp;&amp; 
+memory &gt;= 232 &amp;&amp; 
+energy &gt;=231&amp;&amp;
+activate==1</label>
+</transition>
+
+<transition>
+<source ref="id70"></source>
+<target ref="id68"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="assignment" x="50" y="-50">ServiceC1toServiceC1psr= 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1ServiceC1</name>
+<declaration>int BW =2 ;int activate =1 ;</declaration>
+
+<location id="id71" x="-289" y="-85"><name x="-357" y="-68">CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+</location>
+<location id="id72" x="-110" y="-85"></location>
+<location id="id73" x="59" y="-85"></location>
+<init ref="id71"></init>
+<transition><source ref="id71"></source><target ref="id72"></target><label x="-238" y="-110" kind="synchronisation">x26?</label><label kind="guard" x="-68" y="-85">BW &gt;=2&amp;&amp;
+activate==1&amp;&amp;
+CentreAnalyse1toCentreAnalyse1_pca2_pct1_CentreTraitement1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id72"></source><target ref="id73"></target><label x="-68" y="-110" kind="synchronisation">x29!</label><label kind="guard" x="-238" y="-85">BW &gt;= 2&amp;&amp;
+activate==1</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CentreTraitement1_pct2_ppd_PriseDecision1ServiceC1</name>
+<declaration>int BW =2 ;int activate =1 ;</declaration>
+
+<location id="id74" x="-289" y="-85"><name x="-357" y="-68">CentreTraitement1_pct2_ppd_PriseDecision1</name>
+</location>
+<location id="id75" x="-110" y="-85"></location>
+<location id="id76" x="59" y="-85"></location>
+<init ref="id74"></init>
+<transition><source ref="id74"></source><target ref="id75"></target><label x="-238" y="-110" kind="synchronisation">x28?</label><label kind="guard" x="-68" y="-85">BW &gt;=2&amp;&amp;
+activate==1&amp;&amp;
+CentreTraitement1toCentreTraitement1_pct2_ppd_PriseDecision1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id75"></source><target ref="id76"></target><label x="-68" y="-110" kind="synchronisation">x31!</label><label kind="guard" x="-238" y="-85">BW &gt;= 2&amp;&amp;
+activate==1</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>ServiceC_psc_psc1_CentreAnalyse1ServiceC1</name>
+
+
+<declaration>int BW =2;int activate =1 ;</declaration>
+
+<location id="id77" x="-289" y="-85"><name x="-365" y="-68">CentreAnalyse1_psc_psc1_ServiceC</name>
+</location>
+<location id="id78" x="-110" y="-85"></location>
+<location id="id79" x="59" y="-85"></location>
+<init ref="id77"></init>
+<transition><source ref="id77"></source><target ref="id78"></target><label x="-238" y="-110" kind="synchronisation">x23?</label><label kind="guard" x="-68" y="-85">BW &gt;=2</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id78"></source><target ref="id79"></target><label x="-68" y="-110" kind="synchronisation">x27!</label><label kind="guard" x="-238" y="-85">BW &gt;=2</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>PriseDecision1_ppd2_psr_ServiceCServiceC1</name>
+
+
+<declaration>int BW =2;int activate =1 ;</declaration>
+
+<location id="id80" x="-289" y="-85"><name x="-365" y="-68">PriseDecision1_psr_ppd2_ServiceC</name>
+</location>
+<location id="id81" x="-110" y="-85"></location>
+<location id="id82" x="59" y="-85"></location>
+<init ref="id80"></init>
+<transition><source ref="id80"></source><target ref="id81"></target><label x="-238" y="-110" kind="synchronisation">x30?</label><label kind="guard" x="-68" y="-85">BW &gt;=2&amp;&amp;
+activate==1&amp;&amp;
+ServiceC1toServiceC1psr== 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id81"></source><target ref="id82"></target><label x="-68" y="-110" kind="synchronisation">x22!</label><label kind="guard" x="-238" y="-85">BW &gt;=2</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CapteurTemperature1_pt1_ServiceC1psc_ServiceC1</name>
+<declaration>int BW =3 ;int transfert =3 ;int execution =2 ;int activate = 0 ;</declaration>
+
+<location id="id83" x="-289" y="-85"><name x="-357" y="-68">CapteurTemperature1_pt1_ServiceC1psc_ServiceC1</name>
+</location>
+<location id="id84" x="-110" y="-85"></location>
+<location id="id85" x="59" y="-85"></location>
+<init ref="id83"></init>
+<transition><source ref="id83"></source><target ref="id84"></target><label x="-220" y="-110" kind="synchronisation">x7?</label><label kind="guard" x="-225" y="-75">BW &gt;=3 &amp;&amp;
+activate ==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id84"></source><target ref="id85"></target><label x="-42" y="-110" kind="synchronisation">x24!</label><label kind="guard" x="-76" y="-76">BW &gt;=3&amp;&amp;
+activate ==1</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CapteurTemperature2_pt7_pv1_ActionneurVentilation1</name>
+<declaration>int BW =2 ;int transfert =4 ;int execution =2 ;int activate = 0 ;</declaration>
+
+<location id="id86" x="-289" y="-85"><name x="-357" y="-68">CapteurTemperature2_pt7_pv1_ActionneurVentilation1</name>
+</location>
+<location id="id87" x="-110" y="-85"></location>
+<location id="id88" x="59" y="-85"></location>
+<init ref="id86"></init>
+<transition><source ref="id86"></source><target ref="id87"></target><label x="-220" y="-110" kind="synchronisation">x12?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id87"></source><target ref="id88"></target><label x="-42" y="-110" kind="synchronisation">x20!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CapteurTemperature2_pt2_ServiceC1psc_ServiceC1</name>
+<declaration>int BW =2 ;int transfert =5 ;int execution =2 ;int activate = 0 ;</declaration>
+
+<location id="id89" x="-289" y="-85"><name x="-357" y="-68">CapteurTemperature2_pt2_ServiceC1psc_ServiceC1</name>
+</location>
+<location id="id90" x="-110" y="-85"></location>
+<location id="id91" x="59" y="-85"></location>
+<init ref="id89"></init>
+<transition><source ref="id89"></source><target ref="id90"></target><label x="-220" y="-110" kind="synchronisation">x13?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id90"></source><target ref="id91"></target><label x="-42" y="-110" kind="synchronisation">x24!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CapteurHumidite1_ph2_ServiceC1psc_ServiceC1</name>
+<declaration>int BW =2 ;int transfert =5 ;int execution =2 ;int activate = 1 ;</declaration>
+
+<location id="id92" x="-289" y="-85"><name x="-357" y="-68">CapteurHumidite1_ph2_ServiceC1psc_ServiceC1</name>
+</location>
+<location id="id93" x="-110" y="-85"></location>
+<location id="id94" x="59" y="-85"></location>
+<init ref="id92"></init>
+<transition><source ref="id92"></source><target ref="id93"></target><label x="-220" y="-110" kind="synchronisation">x17?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1&amp;&amp;
+ph2toCapteurHumidite1_ph2_ServiceC1psc_ServiceC1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id93"></source><target ref="id94"></target><label x="-42" y="-110" kind="synchronisation">x24!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label><label kind="assignment" x="-76" y="-42">CapteurHumidite1_ph2_ServiceC1psc_ServiceC1toServiceC1psc= 1, 
+traitement = traitement - 7</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1</name>
+<declaration>int BW =2 ;int transfert =3 ;int execution =790 ;int activate = 1 ;</declaration>
+
+<location id="id95" x="-289" y="-85"><name x="-357" y="-68">ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1</name>
+</location>
+<location id="id96" x="-110" y="-85"></location>
+<location id="id97" x="59" y="-85"></location>
+<init ref="id95"></init>
+<transition><source ref="id95"></source><target ref="id96"></target><label x="-220" y="-110" kind="synchronisation">x25?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1&amp;&amp;
+ServiceC1psrtoServiceC1_ServiceC1psr_pv1_ActionneurVentilation1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id96"></source><target ref="id97"></target><label x="-42" y="-110" kind="synchronisation">x20!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label><label kind="assignment" x="-76" y="-42">ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1topv1= 1, 
+traitement = traitement - 793</label></transition>
+</template>
+
+<system>system CapteurTemperature1,pt6,pt1,pt5,pt4,CapteurTemperature2,pt7,pt2,pt3,CapteurHumidite1,ph2,ph1,ActionneurVentilation1,pv2,pv1,ServiceC1,ServiceC1psr,ServiceC1psc,CentreAnalyse1ServiceC1,CentreTraitement1ServiceC1,PriseDecision1ServiceC1,CentreAnalyse1_pca2_pct1_CentreTraitement1ServiceC1,CentreTraitement1_pct2_ppd_PriseDecision1ServiceC1,ServiceC_psc_psc1_CentreAnalyse1ServiceC1,PriseDecision1_ppd2_psr_ServiceCServiceC1,CapteurTemperature1_pt1_ServiceC1psc_ServiceC1,CapteurTemperature2_pt7_pv1_ActionneurVentilation1,CapteurTemperature2_pt2_ServiceC1psc_ServiceC1,CapteurHumidite1_ph2_ServiceC1psc_ServiceC1,ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1;
+</system>
+<queries><query><formula>E&lt;&gt; traitement &gt; 0
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.energy &lt;=21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.memory &gt;= 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.memory &lt; 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.energy &gt;21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.energy &lt;=21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.memory &gt;= 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.memory &lt; 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.energy &gt;21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.energy &lt;=54
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.memory &gt;= 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.memory &lt; 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.energy &gt;54
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.energy &lt;=22
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.memory &gt;= 33
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.memory &lt; 33
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.energy &gt;22
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.energy &lt;=123
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.memory &gt;= 233
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.memory &lt; 233
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.energy &gt;123
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_pca2_pct1_CentreTraitement1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1_pct2_ppd_PriseDecision1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_psc_psc1_ServiceC.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1_psr_ppd2_ServiceC.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1_pt1_ServiceC1psc_ServiceC1.BW &lt;= 3
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2_pt7_pv1_ActionneurVentilation1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2_pt2_ServiceC1psc_ServiceC1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1_ph2_ServiceC1psc_ServiceC1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1.BW &lt;= 2
+</formula>
+</query>
+</queries>
+</nta>

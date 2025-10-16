@@ -1,0 +1,616 @@
+<?xml version="1.0" ?>
+<nta xmlns="http://www.it.uu.se/research/group/darts/uppaal/flat-1_2">
+
+<declaration>
+chan x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30,x31,x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,x43,x44,x45,x46,x47,x48,x49,x50,x51,x52,x53,x54,x55,x56,x57,x58,x59,x60,x61,x62,x63,x64,x65,x66,x67,x68,x69,x70,x71,x72,x73,x74,x75,x76,x77,x78,x79,x80,x81,x82,x83,x84,x85,x86,x87,x88,x89,x90,x91,x92,x93,x94,x95,x96,x97,x98,x99,x100,x101,x102,x103,x104,x105,x106,x107,x108,x109,x110,x111,x112,x113,x114,x115,x116,x117,x118,x119,x120,x121,x122,x123,x124,x125,x126,x127,x128,x129,x130,x131,x132,x133,x134,x135,x136,x137,x138,x139,x140,x141,x142,x143,x144,x145,x146,x147,x148,x149,x150,x151,x152,x153,x154,x155,x156,x157,x158,x159,x160,x161,x162,x163,x164,x165,x166,x167,x168,x169,x170,x171,x172,x173,x174,x175,x176,x177,x178,x179,x180,x181,x182,x183,x184,x185,x186,x187,x188,x189,x190,x191,x192,x193,x194,x195,x196,x197,x198,x199,exIN1,exOUT0,exOUT1;
+int traitement =800;
+int start = 1;
+int size = 2;
+int CentreAnalyse1topca2 = 0;
+int pca2toCentreAnalyse1_pca2_pct1_CentreTraitement1 = 0;
+int CentreAnalyse1_pca2_pct1_CentreTraitement1topct1 = 0;
+int pct1toCentreTraitement1 = 0;
+int CentreTraitement1topct2 = 0;
+int pct2toCentreTraitement1_pct2_ppd_PriseDecision1 = 0;
+int CentreTraitement1_pct2_ppd_PriseDecision1toppd = 0;
+int ppdtoPriseDecision1 = 0;
+</declaration>
+
+<template x="5" y="5">
+
+<name>CentreAnalyse1</name>
+
+<declaration>int energy =87 ;int memory =21;int waiting_time =89;int activate =1 ;int execution_time =2;</declaration>
+
+<location id="id0" x="-195" y="-144">
+<name x="-210" y="-131">Init_CentreAnalyse1</name>
+</location>
+
+<location id="id1" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id2" x="-500" y="-240"><name x="-500" y="-230">pca2</name>
+</location>
+<location id="id3" x="150" y="-240"><name x="150" y="-230">psc1</name>
+</location>
+<init ref="id0"></init>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-650" y="-245">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &gt;=55 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+CentreAnalyse1topca2 = 1 , 
+start = 0  </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id2"></target>
+<label x="-460" y="-240" kind="synchronisation">x0!</label><label kind="guard" x="-410" y="-230">activate ==1 &amp;&amp;
+start ==1 &amp;&amp; 
+energy &lt;55 &amp;&amp; 
+energy &gt;21 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+CentreAnalyse1topca2 = 1 , 
+start = 0  </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id2"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 90 || 
+energy &lt;=21</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id3"></target>
+<label x="100" y="-240" kind="synchronisation">x1?</label><label kind="guard" x="190" y="-240">activate ==0  &amp;&amp; 
+memory &lt;= 90 &amp;&amp; 
+energy &gt;=55</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id3"></target>
+<label x="100" y="-240" kind="synchronisation">x1?</label><label kind="guard" x="-50" y="-240">activate ==0  &amp;&amp; 
+energy &lt;55 &amp;&amp; 
+energy &gt;21</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id3"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 90 || 
+energy &lt;=21</label></transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id1"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=21&amp;&amp;
+activate ==1</label>
+</transition>
+
+<transition>
+<source ref="id0"></source>
+<target ref="id0"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-255" y="-220">execution_time != 0&amp;&amp; energy &gt;21</label>
+<label kind="assignment" x="-290" y="-205">execution_time = execution_time - 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>psc1</name><declaration>int waiting_time_port ;int  activate =0 ; </declaration>
+
+
+<location id="id4" x="-272" y="-85"><name x="-290" y="-68">Init_psc1</name>
+</location>
+<location id="id5" x="-110" y="-85"></location>
+<location id="id6" x="76" y="-85"></location>
+<init ref="id4"></init>
+<transition><source ref="id4"></source><target ref="id5"></target><label x="-212" y="-110" kind="synchronisation">x2?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id5"></source><target ref="id6"></target><label x="-25" y="-110" kind="synchronisation">x1!</label><label kind="guard" x="-85" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pca2</name><declaration>int  activate =1 ; </declaration>
+
+
+<location id="id7" x="-187" y="-85"><name x="-204" y="-68">Init_pca2</name>
+</location>
+<location id="id8" x="-8" y="-85"></location>
+<location id="id9" x="170" y="-85"></location>
+<init ref="id7"></init>
+<transition><source ref="id7"></source><target ref="id8"></target><label x="-110" y="-110" kind="synchronisation">x0?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><label kind="assignment" x="-145" y="-60">pca2toCentreAnalyse1_pca2_pct1_CentreTraitement1=1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id8"></source><target ref="id9"></target><label x="75" y="-110" kind="synchronisation">x3!</label><label kind="guard" x="25" y="-75">activate == 1 &amp;&amp;
+CentreAnalyse1topca2==1</label><label kind="assignment" x="25" y="-42">CentreAnalyse1topca2= 0</label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>CentreTraitement1</name>
+
+<declaration>int energy =118 ;int memory =23;int waiting_time =100;int activate =1 ;int execution_time =43;</declaration>
+
+<location id="id10" x="-195" y="-144">
+<name x="-210" y="-131">Init_CentreTraitement1</name>
+</location>
+
+<location id="id11" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id12" x="-500" y="-240"><name x="-500" y="-230">pct2</name>
+</location>
+<location id="id13" x="150" y="-240"><name x="150" y="-230">pct1</name>
+</location>
+<init ref="id10"></init>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id12"></target>
+<label x="-460" y="-240" kind="synchronisation">x4!</label><label kind="guard" x="-650" y="-245">activate ==1  &amp;&amp; 
+waiting_time &gt;= 6
+&amp;&amp; start ==0
+&amp;&amp;CentreTraitement1topct2==1 &amp;&amp; 
+energy &gt;=104 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+CentreTraitement1topct2 = 1 </label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id12"></target>
+<label x="-460" y="-240" kind="synchronisation">x4!</label><label kind="guard" x="-410" y="-230">activate ==1  &amp;&amp; 
+waiting_time &gt;= 6
+&amp;&amp; start ==0
+&amp;&amp;CentreTraitement1topct2==1 &amp;&amp; 
+energy &lt;104 &amp;&amp; 
+energy &gt;89 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+CentreTraitement1topct2 = 1 </label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id12"></source>
+<target ref="id11"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 233 || 
+energy &lt;=89&amp;&amp; 
+waiting_time &lt; 6</label>
+</transition>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id13"></target>
+<label x="100" y="-240" kind="synchronisation">x5?</label><label kind="guard" x="190" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 6&amp;&amp;
+pct1toCentreTraitement1 == 1 &amp;&amp; 
+memory &lt;= 233 &amp;&amp; 
+energy &gt;=104</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id13"></target>
+<label x="100" y="-240" kind="synchronisation">x5?</label><label kind="guard" x="-50" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 6&amp;&amp;
+pct1toCentreTraitement1 == 1 &amp;&amp; 
+energy &lt;104 &amp;&amp; 
+energy &gt;89</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id13"></source>
+<target ref="id10"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="assignment" x="50" y="-50">CentreTraitement1topct2= 1</label><label kind="guard" x="190" y="-240">memory &lt;= 233</label>
+</transition>
+
+<transition>
+<source ref="id13"></source>
+<target ref="id11"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 233 || 
+energy &lt;=89&amp;&amp; 
+waiting_time &lt; 6</label></transition>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id11"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=89&amp;&amp;
+activate ==1</label>
+</transition>
+
+<transition>
+<source ref="id10"></source>
+<target ref="id10"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-255" y="-220">execution_time != 0
+&amp;&amp;CentreTraitement1topct2==1&amp;&amp; energy &gt;89</label>
+<label kind="assignment" x="-290" y="-205">execution_time = execution_time - 1</label></transition>
+
+</template>
+
+<template x="5" y="5">
+<name>pct1</name><declaration>int waiting_time_port ;int  activate =1 ; </declaration>
+
+
+<location id="id14" x="-272" y="-85"><name x="-290" y="-68">Init_pct1</name>
+</location>
+<location id="id15" x="-110" y="-85"></location>
+<location id="id16" x="76" y="-85"></location>
+<init ref="id14"></init>
+<transition><source ref="id14"></source><target ref="id15"></target><label x="-212" y="-110" kind="synchronisation">x6?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><label kind="assignment" x="-230" y="-60">pct1toCentreTraitement1= 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id15"></source><target ref="id16"></target><label x="-25" y="-110" kind="synchronisation">x5!</label><label kind="guard" x="-85" y="-75">activate == 1 &amp;&amp;
+CentreAnalyse1_pca2_pct1_CentreTraitement1topct1==1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>pct2</name><declaration>int  activate =1 ; </declaration>
+
+
+<location id="id17" x="-187" y="-85"><name x="-204" y="-68">Init_pct2</name>
+</location>
+<location id="id18" x="-8" y="-85"></location>
+<location id="id19" x="170" y="-85"></location>
+<init ref="id17"></init>
+<transition><source ref="id17"></source><target ref="id18"></target><label x="-110" y="-110" kind="synchronisation">x4?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><label kind="assignment" x="-145" y="-60">pct2toCentreTraitement1_pct2_ppd_PriseDecision1=1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id18"></source><target ref="id19"></target><label x="75" y="-110" kind="synchronisation">x7!</label><label kind="guard" x="25" y="-75">activate == 1 &amp;&amp;
+CentreTraitement1topct2==1</label><label kind="assignment" x="25" y="-42">CentreTraitement1topct2= 0</label></transition>
+</template>
+
+<template x="5" y="5">
+
+<name>PriseDecision1</name>
+
+<declaration>int energy =231 ;int memory =212;int waiting_time =120;int activate =1 ;int execution_time =0;</declaration>
+
+<location id="id20" x="-195" y="-144">
+<name x="-210" y="-131">Init_PriseDecision1</name>
+</location>
+
+<location id="id21" x="-204" y="-365"><name x="-227" y="-351">ERROR</name>
+</location>
+<label kind="comments" x="-700" y="-500">*The component will be inactive if it is not participating in the path specified by the user.
+*The component will switch to a power-saving mode if the energy reaches half of its initial 
+ value.
+*The component switches to a blocking state if the changes in the system aren't compatible 
+ with its non-functional attributes such as energy, waiting time, and memory.
+*The order we follow to send the data represents the path specified by the user.</label><location id="id22" x="-500" y="-240"><name x="-500" y="-230">ppd2</name>
+</location>
+<location id="id23" x="150" y="-240"><name x="150" y="-230">ppd</name>
+</location>
+<init ref="id20"></init>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id22"></target>
+<label x="-460" y="-240" kind="synchronisation">x8!</label><label kind="guard" x="-650" y="-245">activate ==0  &amp;&amp; 
+waiting_time &gt;= 46
+&amp;&amp; start ==0 &amp;&amp; 
+memory &lt;= 232 &amp;&amp; 
+energy &gt;=177 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-650" y="-295">energy = energy - 2 ,
+memory = memory + 2</label>
+<nail x="-500" y="-210"></nail></transition>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id22"></target>
+<label x="-460" y="-240" kind="synchronisation">x8!</label><label kind="guard" x="-410" y="-230">activate ==0  &amp;&amp; 
+waiting_time &gt;= 46
+&amp;&amp; start ==0 &amp;&amp; 
+memory &lt;= 232 &amp;&amp; 
+energy &lt;177 &amp;&amp; 
+energy &gt;123 &amp;&amp;
+execution_time ==0</label><label kind="assignment" x="-410" y="-275">energy = energy - 1 ,
+memory = memory + 2</label>
+<nail x="-500" y="-270"></nail></transition>
+
+<transition>
+<source ref="id22"></source>
+<target ref="id21"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-311" y="-340">
+memory &gt; 232 || 
+energy &lt;=123&amp;&amp; 
+waiting_time &lt; 46</label>
+</transition>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id23"></target>
+<label x="100" y="-240" kind="synchronisation">x9?</label><label kind="guard" x="190" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 46&amp;&amp;
+ppdtoPriseDecision1 == 1 &amp;&amp; 
+memory &lt;= 232 &amp;&amp; 
+energy &gt;=177</label>
+<label kind="assignment" x="190" y="-270">energy = energy - 2,
+memory = memory + 2</label><nail x="150" y="-210"></nail></transition>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id23"></target>
+<label x="100" y="-240" kind="synchronisation">x9?</label><label kind="guard" x="-50" y="-240">activate ==1  &amp;&amp; 
+waiting_time &gt;= 46&amp;&amp;
+ppdtoPriseDecision1 == 1 &amp;&amp; 
+memory &lt;= 232 &amp;&amp; 
+energy &lt;177 &amp;&amp; 
+energy &gt;123</label>
+<label kind="assignment" x="-50" y="-270">energy = energy - 1,
+memory = memory + 2</label><nail x="150" y="-270"></nail></transition>
+
+<transition>
+<source ref="id23"></source>
+<target ref="id20"></target>
+<label x="-110" y="-102" kind="synchronisation"></label>
+<label kind="guard" x="190" y="-240">memory &lt;= 232</label>
+</transition>
+
+<transition>
+<source ref="id23"></source>
+<target ref="id21"></target>
+<label x="-255" y="-153" kind="synchronisation"></label>
+
+<label kind="guard" x="-150" y="-340">memory &gt; 232 || 
+energy &lt;=123&amp;&amp; 
+waiting_time &lt; 46</label></transition>
+
+<transition>
+<source ref="id20"></source>
+<target ref="id21"></target>
+<label x="-255" y="-153" kind="synchronisation"></label><label kind="guard" x="-230" y="-280">energy &lt;=123&amp;&amp;
+activate ==1</label>
+</transition>
+
+</template>
+
+<template x="5" y="5">
+<name>ppd</name><declaration>int waiting_time_port ;int  activate =1 ; </declaration>
+
+
+<location id="id24" x="-272" y="-85"><name x="-290" y="-68">Init_ppd</name>
+</location>
+<location id="id25" x="-110" y="-85"></location>
+<location id="id26" x="76" y="-85"></location>
+<init ref="id24"></init>
+<transition><source ref="id24"></source><target ref="id25"></target><label x="-212" y="-110" kind="synchronisation">x10?</label><label kind="guard" x="-230" y="-75">activate == 1 </label><label kind="assignment" x="-230" y="-60">ppdtoPriseDecision1= 1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id25"></source><target ref="id26"></target><label x="-25" y="-110" kind="synchronisation">x9!</label><label kind="guard" x="-85" y="-75">activate == 1 &amp;&amp;
+CentreTraitement1_pct2_ppd_PriseDecision1toppd==1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>ppd2</name><declaration>int  activate =0 ; </declaration>
+
+
+<location id="id27" x="-187" y="-85"><name x="-204" y="-68">Init_ppd2</name>
+</location>
+<location id="id28" x="-8" y="-85"></location>
+<location id="id29" x="170" y="-85"></location>
+<init ref="id27"></init>
+<transition><source ref="id27"></source><target ref="id28"></target><label x="-110" y="-110" kind="synchronisation">x8?</label><label kind="guard" x="-145" y="-75">activate == 1 </label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id28"></source><target ref="id29"></target><label x="75" y="-110" kind="synchronisation">x11!</label><label kind="guard" x="25" y="-75">activate == 1 </label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<declaration>int BW =2 ;int transfert =4 ;int execution =2 ;int activate = 1 ;</declaration>
+
+<location id="id30" x="-289" y="-85"><name x="-357" y="-68">CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+</location>
+<location id="id31" x="-110" y="-85"></location>
+<location id="id32" x="59" y="-85"></location>
+<init ref="id30"></init>
+<transition><source ref="id30"></source><target ref="id31"></target><label x="-220" y="-110" kind="synchronisation">x3?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1&amp;&amp;
+pca2toCentreAnalyse1_pca2_pct1_CentreTraitement1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id31"></source><target ref="id32"></target><label x="-42" y="-110" kind="synchronisation">x6!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label><label kind="assignment" x="-76" y="-42">CentreAnalyse1_pca2_pct1_CentreTraitement1topct1= 1, 
+traitement = traitement - 6</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<declaration>int BW =2 ;int transfert =3 ;int execution =43 ;int activate = 1 ;</declaration>
+
+<location id="id33" x="-289" y="-85"><name x="-357" y="-68">CentreTraitement1_pct2_ppd_PriseDecision1</name>
+</location>
+<location id="id34" x="-110" y="-85"></location>
+<location id="id35" x="59" y="-85"></location>
+<init ref="id33"></init>
+<transition><source ref="id33"></source><target ref="id34"></target><label x="-220" y="-110" kind="synchronisation">x7?</label><label kind="guard" x="-225" y="-75">BW &gt;=2 &amp;&amp;
+activate ==1&amp;&amp;
+pct2toCentreTraitement1_pct2_ppd_PriseDecision1==1</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id34"></source><target ref="id35"></target><label x="-42" y="-110" kind="synchronisation">x10!</label><label kind="guard" x="-76" y="-76">BW &gt;=2&amp;&amp;
+activate ==1</label><label kind="assignment" x="-76" y="-42">CentreTraitement1_pct2_ppd_PriseDecision1toppd= 1, 
+traitement = traitement - 46</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>D_psr</name>
+<location id="id36" x="-204" y="-85"><name x="-221" y="-68">Init_psr</name>
+</location>
+<location id="id37" x="-110" y="-85"></location>
+<location id="id38" x="-8" y="-85"></location>
+<init ref="id36"></init>
+<transition><source ref="id36"></source><target ref="id37"></target><label x="-170" y="-119" kind="synchronisation">x12?</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id37"></source><target ref="id36"></target><label x="-195" y="-42" kind="synchronisation"></label><nail x="-144" y="-51"></nail></transition>
+<transition><source ref="id37"></source><target ref="id38"></target><label x="-68" y="-42" kind="synchronisation">x13!</label></transition>
+<transition><source ref="id38"></source><target ref="id37"></target><label x="-85" y="-119" kind="synchronisation"></label></transition>
+</template>
+
+<template x="5" y="5">
+<name>D_psc</name>
+<location id="id39" x="-204" y="-85"><name x="-221" y="-68">Init_psc</name>
+</location>
+<location id="id40" x="-110" y="-85"></location>
+<location id="id41" x="-8" y="-85"></location>
+<init ref="id39"></init>
+<transition><source ref="id39"></source><target ref="id40"></target><label x="-170" y="-119" kind="synchronisation">x14?</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id40"></source><target ref="id41"></target><label x="-75" y="-120" kind="synchronisation">x15!</label></transition>
+</template>
+
+<template x="5" y="5">
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+
+
+<declaration>int BW =2; int activate = 1 ;</declaration>
+
+<location id="id42" x="-289" y="-85"><name x="-365" y="-68">CentreAnalyse1_psc_psc1_ServiceC</name>
+</location>
+<location id="id43" x="-110" y="-85"></location>
+<location id="id44" x="59" y="-85"></location>
+<init ref="id42"></init>
+<transition><source ref="id42"></source><target ref="id43"></target><label x="-204" y="-110" kind="synchronisation">x15?</label><label kind="guard" x="-68" y="-85">BW &gt;=2</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id43"></source><target ref="id42"></target><label x="-195" y="-42" kind="synchronisation"></label><nail x="-187" y="-25"></nail></transition>
+<transition><source ref="id43"></source><target ref="id44"></target><label x="-25" y="-25" kind="synchronisation">x2!</label><label kind="guard" x="-238" y="-85">BW &gt;=2&amp;&amp;
+ activate ==0</label></transition>
+<transition><source ref="id44"></source><target ref="id43"></target><label x="-85" y="-119" kind="synchronisation"></label></transition>
+</template>
+
+<template x="5" y="5">
+<name>PriseDecision1_psr_ppd2_ServiceC</name>
+
+
+<declaration>int BW =2 ; int activate = 1 ;</declaration>
+
+<location id="id45" x="-289" y="-85"><name x="-365" y="-68">PriseDecision1_psr_ppd2_ServiceC</name>
+</location>
+<location id="id46" x="-110" y="-85"></location>
+<location id="id47" x="59" y="-85"></location>
+<init ref="id45"></init>
+<transition><source ref="id45"></source><target ref="id46"></target><label x="-204" y="-110" kind="synchronisation">x11?</label><label kind="guard" x="-68" y="-85">BW &gt;=2&amp;&amp;
+ activate ==0</label><nail x="-153" y="-85"></nail></transition>
+<transition><source ref="id46"></source><target ref="id45"></target><label x="-195" y="-42" kind="synchronisation"></label><nail x="-187" y="-25"></nail></transition>
+<transition><source ref="id46"></source><target ref="id47"></target><label x="-25" y="-25" kind="synchronisation">x12!</label><label kind="guard" x="-238" y="-85">BW &gt;=2</label></transition>
+<transition><source ref="id47"></source><target ref="id46"></target><label x="-85" y="-119" kind="synchronisation"></label></transition>
+</template>
+
+<system>system CentreAnalyse1,pca2,psc1,CentreTraitement1,pct2,pct1,PriseDecision1,ppd2,ppd,CentreAnalyse1_pca2_pct1_CentreTraitement1,CentreTraitement1_pct2_ppd_PriseDecision1,CentreAnalyse1_psc_psc1_ServiceC,PriseDecision1_psr_ppd2_ServiceC;
+</system>
+<queries><query><formula>E&lt;&gt; traitement &gt; 0
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.energy &lt;=21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.memory &gt;= 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.memory &lt; 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1.energy &gt;21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.energy &lt;=21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.memory &gt;= 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.memory &lt; 34
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature2.energy &gt;21
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.energy &lt;=54
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.memory &gt;= 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.memory &lt; 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite1.energy &gt;54
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite2.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite2.energy &lt;=54
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite2.memory &gt;= 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite2.memory &lt; 222
+</formula>
+</query><query><formula>E&lt;&gt; CapteurHumidite2.energy &gt;54
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.energy &lt;=22
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.memory &gt;= 65
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.memory &lt; 65
+</formula>
+</query><query><formula>E&lt;&gt; ActionneurVentilation1.energy &gt;22
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.energy &lt;=123
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.memory &gt;= 233
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.memory &lt; 233
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1.energy &gt;123
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_pca2_pct1_CentreTraitement1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_psc_psc1_ServiceC.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1_psr_pct2_ServiceC.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CapteurTemperature1_pt1_ServiceC1psc_ServiceC1.BW &lt;= 3
+</formula>
+</query><query><formula>E&lt;&gt; ServiceC1_ServiceC1psr_pv1_ActionneurVentilation1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; traitement &gt; 0
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1.energy &lt;=21
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1.memory &gt;= 90
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1.memory &lt; 90
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1.energy &gt;21
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1.energy &lt;=89
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1.memory &gt;= 233
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1.memory &lt; 233
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1.energy &gt;89
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1.ERROR
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1.energy &lt;=123
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1.memory &gt;= 232
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1.memory &lt; 232
+</formula>
+</query><query><formula>E&lt;&gt; PriseDecision1.energy &gt;123
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_pca2_pct1_CentreTraitement1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreTraitement1_pct2_ppd_PriseDecision1.BW &lt;= 2
+</formula>
+</query><query><formula>E&lt;&gt; CentreAnalyse1_psc_psc1_ServiceC.BW &lt;= 2
+</formula>
+</query>
+</queries>
+</nta>
