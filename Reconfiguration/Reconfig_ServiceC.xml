@@ -1,0 +1,237 @@
+<?xml version="1.0" ?>
+<Configuration><name>Reconfig_ServiceC</name>
+<Events>
+
+<Event>
+<Type>addComponent</Type>
+<name>CentreAnalyse2</name>
+<Date>Sat Jun 22 19:04:17 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>CentreTraitement2</name>
+<Date>Sat Jun 22 19:04:24 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addComponent</Type>
+<name>PriseDecision2</name>
+<Date>Sat Jun 22 19:04:40 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CentreAnalyse1:pca</name>
+<Date>Sat Jun 22 19:05:36 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CentreAnalyse1:pca2</name>
+<Date>Sat Jun 22 19:06:01 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CentreAnalyse1:psc</name>
+<Date>Sat Jun 22 19:06:15 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConfigPort</Type>
+<name>psc</name>
+<Date>Sat Jun 22 19:07:31 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Sat Jun 22 19:07:49 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConfigPort</Type>
+<name>psr</name>
+<Date>Sat Jun 22 19:08:12 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CentreAnalyse1_psr_pca2_ServiceC</name>
+<Date>Sat Jun 22 19:08:30 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CentreAnalyse1_psr_pca2_ServiceC</name>
+<Date>Sat Jun 22 19:14:58 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CentreTraitement1:pct1</name>
+<Date>Sat Jun 22 19:15:18 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>CentreTraitement1:pct2</name>
+<Date>Sat Jun 22 19:15:31 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>PriseDecision1:ppd</name>
+<Date>Sat Jun 22 19:15:46 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addPort</Type>
+<name>PriseDecision1:ppd2</name>
+<Date>Sat Jun 22 19:16:00 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<Date>Sat Jun 22 19:16:50 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CentreTraitement1_psr_pct2_ServiceC</name>
+<Date>Sat Jun 22 19:17:23 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CentreTraitement1_psr_pct2_ServiceC</name>
+<Date>Sat Jun 22 19:30:18 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<Date>Sat Jun 22 19:30:45 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>PriseDecision1_psr_ppd2_ServiceC</name>
+<Date>Sat Jun 22 19:31:20 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<Date>Sun Jun 23 20:10:29 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<Date>Sun Jun 23 20:11:37 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Sun Jun 23 20:52:47 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Sun Jun 23 20:54:00 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<Date>Sun Jun 23 20:54:18 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<Date>Sun Jun 23 20:55:10 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<Date>Sun Jun 23 20:55:28 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreAnalyse1_pca2_pct1_CentreTraitement1</name>
+<Date>Sun Jun 23 20:56:22 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteConnector</Type>
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<Date>Sun Jun 23 20:57:05 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addConnector</Type>
+<name>CentreTraitement1_pct2_ppd_PriseDecision1</name>
+<Date>Sun Jun 23 20:58:13 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Tue Jun 25 19:08:56 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>addtorDelegation</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Tue Jun 25 19:11:30 CET 2024</Date>
+</Event>
+
+
+<Event>
+<Type>deleteDelegationConnector</Type>
+<name>CentreAnalyse1_psc_psc1_ServiceC</name>
+<Date>Wed Jun 26 10:46:09 CET 2024</Date>
+</Event>
+
+</Events>
+</Configuration>
+
